@@ -7,6 +7,13 @@
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">My Reports</li>
     </ol>
+    
+    <div class="card-body">
+        @if (session('message'))
+            <div class="alert alert-success">{{  session('message')  }}</div>
+        @endif
+    </div>
+
     <div class="row">
         <form method="POST" action="/target_actor/submitreport" enctype="multipart/form-data">
             @csrf

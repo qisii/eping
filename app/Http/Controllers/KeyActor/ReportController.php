@@ -17,7 +17,7 @@ class ReportController extends Controller
     public function updateReport(Request $request, $id)
     {
         $posts = Post::findOrFail($id);
-        if ($request->description or $request->response_status != ''){
+        if ($request->description or $request->response_status or $request->legitimacy != ''){
 
             if($request->response_status !=''){
                 Post::findOrFail($id)->update([
@@ -36,7 +36,7 @@ class ReportController extends Controller
             }
            
             
-            return redirect("/key_actor/report/edit-report/".$id)->with('message', 'Report Updated Succesfully');
+            return redirect("/key_actor/report/viewreport/")->with('message', 'Report Updated Succesfully');
         } else {
             return redirect("/key_actor/report/edit-report/".$id);
         }

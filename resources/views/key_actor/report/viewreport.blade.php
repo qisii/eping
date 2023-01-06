@@ -93,7 +93,7 @@
                                     <p>Closed</p>
                                 @endif
                             @else
-                                <p>Null</p>
+                                <p>Pending</p>
                             @endif
                         </td>
                         <td>
@@ -104,7 +104,7 @@
                                 <p>False</p>
                             @endif
                         @else
-                            <p>Null</p>
+                            <p>Pending</p>
                         @endif
                         </td>
                         <td>{{ $post->created_at }}</td>

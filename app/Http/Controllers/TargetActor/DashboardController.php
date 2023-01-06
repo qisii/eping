@@ -83,7 +83,7 @@ class DashboardController extends Controller
         }
         $file->save();
         
-        return view('target_actor.views.submitreport', compact('types'));
+        return redirect("/target_actor/viewreport")->with('message', 'Report Submitted Successfully');
     }
     public function viewReport() 
     {
