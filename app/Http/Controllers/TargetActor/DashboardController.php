@@ -71,8 +71,9 @@ class DashboardController extends Controller
         $file->description = $request->description;
         $file->incident_type = json_encode($request->incident_type);
         $file->latitude = $request->latitude;
+        $file->response_status = NULL;
         $file->longitude = $request->longitude;
-        $file->legitimacy = $request->legitimacy;
+        $file->legitimacy = NULL;
         $file->user_id= Auth::id();
         $newFile = $request->file('image');
         if($newFile) {

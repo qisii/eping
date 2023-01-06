@@ -85,13 +85,24 @@
                         <td>{{ $post->description }}</td>
                         
                         <td>@if($post->response_status!= null)
-                                {{ $post->response_status}}
+                                @if($post->response_status == 1)
+                                    <p>OTW</p>
+                                @elseif($post->response_status == 2)
+                                    <p>On the Scene</p>
+                                @elseif($post->response_status == 3)
+                                    <p>Closed</p>
+                                @endif
                             @else
                                 <p>Null</p>
                             @endif
                         </td>
-                        <td>@if($post->legitimacy!= null)
-                            {{ $post->legitimacy}}
+                        <td>
+                        @if($post->legitimacy!= null)
+                            @if($post->legitimacy == 1)
+                                <p>True</p>
+                            @elseif($post->legitimacy == 2)
+                                <p>False</p>
+                            @endif
                         @else
                             <p>Null</p>
                         @endif

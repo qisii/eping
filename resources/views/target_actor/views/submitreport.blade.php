@@ -35,8 +35,7 @@
 
             <input hidden name="latitude" id="latitude" value="">
             <input hidden name="longitude" id="longitude" value="">
-            <input hidden name="legitimacy" id="legitimacy" value="">
-            <input hidden name="response_status" id="response_status" value="">
+
             <table class="table table-bordered">
                 <tbody>
                         <tr>

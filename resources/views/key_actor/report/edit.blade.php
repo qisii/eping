@@ -8,7 +8,7 @@
 
 
 <div>
-    <form action="/key_actor/report/updateresponse/{{ $posts->id}}" method="post" enctype="multipart/form-data">
+    <form action="/key_actor/report/updatereport/{{ $posts->id}}" method="post" enctype="multipart/form-data">
         @csrf 
         @if($errors->any())
             <div class="alert alert-danger">
@@ -65,6 +65,44 @@
                 @enderror
             </div>
         </div>
+
+
+
+        <div class="row mb-3">
+            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Legitimacy') }}</label>
+
+            <div class="col-md-6">
+                
+                <select id="legitimacy" type="text"  name="legitimacy"  class="form-control" autofocus>
+                    <option value={{$posts->legitimacy}} >
+                        @if($posts->legitimacy== NULL)
+                            To be set
+                        @elseif($posts->legitimacy==1)
+                            True
+                        @elseif($posts->legitimacy==2)
+                            False
+                        @endif
+                    </option>
+                    @if($posts->legitimacy== NULL)
+                    <option value="1">True</option>
+                    <option value="2">False</option> 
+                    @elseif($posts->legitimacy==1)
+                    <option value="2">False</option>
+                    @elseif($posts->legitimacy==2)
+                    <option value="1">True</option>
+
+
+                    
+                    @endif
+                </select>
+                @error('type')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        
         
 
 

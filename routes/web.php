@@ -92,7 +92,7 @@ Route::prefix('key_actor')->middleware(['auth', 'isKeyActor', ])->group(function
 
     Route::get('/report/viewreport', [App\Http\Controllers\KeyActor\ReportController::class, 'viewReport']);
     Route::get('/report/edit-report/{id}', [App\Http\Controllers\KeyActor\ReportController::class, 'editReport']);
-    Route::put('/report/updateresponse/{id}', [App\Http\Controllers\KeyActor\ReportController::class,'updateResponse']);
+    Route::put('/report/updatereport/{id}', [App\Http\Controllers\KeyActor\ReportController::class,'updateReport']);
 });
 
 

@@ -14,7 +14,7 @@ class ReportController extends Controller
         $posts = Post::all();
         return view('key_actor.report.viewreport', compact('posts'));
     }
-    public function updateResponse(Request $request, $id)
+    public function updateReport(Request $request, $id)
     {
         $posts = Post::findOrFail($id);
         if ($request->description or $request->response_status != ''){
@@ -27,6 +27,11 @@ class ReportController extends Controller
             if($request->description !=''){
                 Post::findOrFail($id)->update([
                     "description" => $request->description,
+                ]);
+            }
+            if($request->legitimacy !=''){
+                Post::findOrFail($id)->update([
+                    "legitimacy" => $request->legitimacy,
                 ]);
             }
            
