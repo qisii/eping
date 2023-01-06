@@ -49,19 +49,26 @@
             <div class="col-md-6">
                 
                 <select id="response_status" type="text"  name="response_status"  class="form-control" autofocus>
-                    <option value={{$posts->response_status}} >@if($posts->response_status==1)
-                                Responding
-
-
-                            @elseif($posts->response_status==2)
-                                On the Scene
-                            @elseif($posts->response_status==3)
-                                Closed
-                            @endif
+                    <option value={{$posts->response_status}}>
+                        @if($posts->response_status==1)
+                            Responding
+                        @elseif($posts->response_status==2)
+                            On the Scene
+                        @elseif($posts->response_status==3)
+                            Case Closed
+                        @endif
                     </option>
-                    <option value="1">Responding</option>
-                    <option value="2">On the Scene</option>
-                    <option value="3">Closed</option>   
+                    @if($posts->response_status==1)
+                       
+                        <option value="2">On the Scene</option>
+                        <option value="3">Case Closed</option>
+                    @elseif($posts->response_status==2)
+                        <option value="1">Responding</option>   
+                        <option value="3">Case Closed</option>
+                    @elseif($posts->response_status==3)
+                        <option value="1">Responding</option>   
+                        <option value="2">On the Scene</option>
+                    @endif
                 </select>
                 @error('type')
                     <span class="invalid-feedback" role="alert">
@@ -79,7 +86,7 @@
             <div class="col-md-6">
                 
                 <select id="legitimacy" type="text"  name="legitimacy"  class="form-control" autofocus>
-                    <option value={{$posts->legitimacy}} >
+                    <option value={{$posts->legitimacy}}>
                         @if($posts->legitimacy== NULL)
                             To be set
                         @elseif($posts->legitimacy==1)

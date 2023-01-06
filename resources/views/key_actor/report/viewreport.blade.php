@@ -86,11 +86,11 @@
                         
                         <td>@if($post->response_status!= null)
                                 @if($post->response_status == 1)
-                                    <p>OTW</p>
+                                    <p>Responding</p>
                                 @elseif($post->response_status == 2)
                                     <p>On the Scene</p>
                                 @elseif($post->response_status == 3)
-                                    <p>Closed</p>
+                                    <p>Case Closed</p>
                                 @endif
                             @else
                                 <p>Pending</p>
