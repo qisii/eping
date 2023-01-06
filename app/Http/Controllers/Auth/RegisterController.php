@@ -54,13 +54,10 @@ class RegisterController extends Controller
             'last_name'=> [ 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            // 'phonenumber' => ['required', 'digits:11'],
-            // 'emergency_number1' => ['required', 'digits:11'],
-            // 'emergency_number2' => ['required', 'digits:11'],
-           
-
-
-
+            'phonenumber' => ['required', 'digits:9', 'unique:users'],
+            'emergency_number1' => ['required', 'digits:9'],
+            'emergency_number2' => ['required', 'digits:9'],
+            'address' => ['required', 'string', 'max:50'],
         ]);
     }
 
@@ -73,13 +70,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'first_name' => $data['first_name'],
-            'last_name'=> $data['last_name'],
+            'first_name' => strtolower($data['first_name']),
+            'last_name'=> strtolower($data['last_name']),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             // 'email_verified_at' => $data['email_verified_at'],
             'phonenumber' => $data['phonenumber'],
-            'address' => $data['address'],
+            'address' => strtolower($data['address']),
             'emergency_number1' => $data['emergency_number1'],
             'emergency_number2' => $data['emergency_number2'],
             // 'role_as' => $data['role_as'],

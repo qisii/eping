@@ -20,12 +20,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('phonenumber')->nullable();
+            $table->string('phonenumber')->nullable();
             $table->string('address')->nullable();
-            $table->integer('emergency_number1')->nullable();
-            $table->integer('emergency_number2')->nullable();
+            $table->string('emergency_number1')->nullable();
+            $table->string('emergency_number2')->nullable();
             $table->tinyInteger('role_as')->default('0');
-            $table->mediumText('description')->nullable();
+            $table->longText('description')->nullable();
             $table->tinyInteger('status')->default('1'); 
             $table->tinyInteger('created_by')->default('0');   
             $table->rememberToken();

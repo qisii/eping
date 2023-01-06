@@ -22,7 +22,7 @@
                             <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="first_name" type="text"  name="first_name" value="{{ old('first_name') }}"  autofocus>
+                                <input id="first_name" type="text"  name="first_name" class="form-control" value="{{ old('first_name') }}"  autofocus>
 
                                 @error('first_name')
                                     <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                             <label for="last_name" class="col-md-4 col-form-label text-md-end">{{ __('Last Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="last_name" type="text"  name="last_name" value="{{ old('last_name') }}"  autofocus>
+                                <input id="last_name" type="text"  name="last_name" class="form-control" value="{{ old('last_name') }}"  autofocus>
 
                                 @error('last_name')
                                     <span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text"  name="email" value="{{ old('email') }}"  autofocus>
+                                <input id="email" type="text"  name="email" class="form-control" value="{{ old('email') }}"  autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -64,7 +64,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password"  name="password" >
+                                <input id="password" type="password"  class="form-control" name="password" >
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -79,6 +79,12 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" >
+                                
+                                @error('password-confirm')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -86,7 +92,7 @@
                             <label for="phonenumber" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phonenumber" type="text"  name="phonenumber" value="{{ old('phonenumber') }}"  autofocus>
+                                <input id="phonenumber" type="text"  name="phonenumber" placeholder="+639" class="form-control" value="{{ old('phonenumber') }}"  autofocus>
 
                                 @error('phonenumber')
                                     <span class="invalid-feedback" role="alert">
@@ -100,7 +106,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text"  name="address" value="{{ old('address') }}"  autofocus>
+                                <input id="address" type="text"  name="address" class="form-control" value="{{ old('address') }}"  autofocus>
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
@@ -114,7 +120,7 @@
                             <label for="emergency_number1" class="col-md-4 col-form-label text-md-end">{{ __('Emergency Number 1') }}</label>
 
                             <div class="col-md-6">
-                                <input id="emergency_number1" type="text"  name="emergency_number1" value="{{ old('emergency_number1') }}"  autofocus>
+                                <input id="emergency_number1" type="text"  name="emergency_number1" placeholder="+639" class="form-control" value="{{ old('emergency_number1') }}"  autofocus>
 
                                 @error('emergency_number1')
                                     <span class="invalid-feedback" role="alert">
@@ -128,7 +134,7 @@
                             <label for="emergency_number2" class="col-md-4 col-form-label text-md-end">{{ __('Emergency Number 2') }}</label>
 
                             <div class="col-md-6">
-                                <input id="emergency_number2" type="text"  name="emergency_number2" value="{{ old('emergency_number2') }}" autofocus>
+                                <input id="emergency_number2" type="text"  name="emergency_number2" placeholder="+639" class="form-control" value="{{ old('emergency_number2') }}" autofocus>
 
                                 @error('emergency_number2')
                                     <span class="invalid-feedback" role="alert">

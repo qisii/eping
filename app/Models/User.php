@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
+use Laravel\Sanctum\HasApiTokens;
+use Kyslik\ColumnSortable\Sortable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -31,6 +32,25 @@ class User extends Authenticatable
         'description',
         'status',
         'created_by',
+
+    ];
+
+    protected $sortable = [
+        'id',
+        'first_name',
+        'last_name',
+        'email',
+        'password',
+        'email_verified_at',
+        'phonenumber',
+        'address',
+        'emergency_number1',
+        'emergency_number2',
+        'role_as',
+        'description',
+        'status',
+        'created_by',
+        'created_at'
 
     ];
 

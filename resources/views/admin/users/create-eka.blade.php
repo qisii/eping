@@ -30,12 +30,12 @@
                     @endif
                     <!--  -->
                     <div class="row mb-3">
-                        <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('Agency Name') }}</label>
+                        <label for="agency_name" class="col-md-4 col-form-label text-md-end">{{ __('Agency Name') }}</label>
 
                         <div class="col-md-6">
-                            <input id="first_name" type="text"  name="first_name" value="{{ old('first_name') }}" class="form-control" autofocus>
+                            <input id="agency_name" type="text"  name="agency_name" value="{{ old('agency_name') }}" class="form-control" autofocus>
 
-                            @error('first_name')
+                            @error('agency_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

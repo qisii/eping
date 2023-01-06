@@ -31,23 +31,40 @@
                         </div>
                     @endif
                     
-                    <div>
-                        <p>Title</p>
-                        <input type="text" name="title">
+                    <div class="row mb-3">
+                        <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Title') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="title" type="text"  name="title" value="{{ old('title') }}" class="form-control" autofocus>
+
+                            @error('title')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
                     </div>
-                    <div>
-                        <p>Description</p>
-                        <textarea name="description"  cols="30" rows="5"></textarea>
+
+                    <div class="row mb-3">
+                        <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
+
+                        <div class="col-md-6">
+                            <textarea  cols="10" rows="5" id="description" type="text"  name="description" value="{{ old('description') }}" class="form-control" autofocus>{{ old('description') }}</textarea>
+
+                            @error('description')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
                     </div>
-                    <!-- <div>
-                        <p>Save as draft: <input type="radio" name="material_stat" value="draft"></p>
-                        <p>Publish now: <input type="radio" name="material_stat" value="active"></p>
-                        
-                    </div> -->
-                    
-                    <div>
-                        <br>
-                        <button name="submit">Submit</button>
+
+                    <div class="row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Add Material') }}
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
