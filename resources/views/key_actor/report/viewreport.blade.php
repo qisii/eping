@@ -5,19 +5,11 @@
 <div class="container-fluid px-4">
 
     <div class="card mt-4">
-        <div class="card-header">
-            <h4>View Report 
-                <a href="{{url('key_actor/add-feed')}}" class="btn btn-primary btn-sm float-end">Add Feed</a>
-            </h4>
-        </div>
-        <div class="card-body">
-            @if (session('message'))
-                <div class="alert alert-success">{{ session('message')}}</div>
-            @endif
-        </div>
+        
         
         <div class="col-md-5 my-auto">
-            <form action="{{ url('key_actor/search-feed') }}" method="GET" role="search">
+            <p>Search by Description</p>
+            <form action="{{ url('key_actor/report/viewreport') }}" method="GET" role="search">
                 <div class="input-group">
                     <input type="search" name="search" placeholder="Search" class="form-control">
                     <button type="submit">
@@ -117,11 +109,14 @@
                         <td colspan="5">No Files Available</td>
                     </tr>
                 @endforelse        
-            </tbody>        
+            </tbody>     
+               
         </table>
-    
+        <div>
+        {{ $posts->links() }}   
+        </div>
     </div>
-
+    
 </div>
 
 

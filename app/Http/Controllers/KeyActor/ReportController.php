@@ -10,8 +10,25 @@ use Illuminate\Http\Request;
 class ReportController extends Controller
 {
 
-    public function viewReport() {
-        $posts = Post::all();
+    public function viewReport(Request $request) {
+        $posts = Post::where([
+            ['id', '!=', Null],
+            [function ($query) use ($request){
+                if (($s = $request->search))
+                {
+                    $query->orWhere('description', 'LIKE', '%' . $s . '%')
+                    ->orWhere('id', 'LIKE', '%' . $s . '%')
+                    ->orWhere('created_at', 'LIKE', '%' . $s . '%')
+                    ->orWhere('updated_at', 'LIKE', '%' . $s . '%')
+                    ->orWhere('response_status', 'LIKE', '%' . $s . '%')
+                    ->orWhere('legitimacy', 'LIKE', '%' . $s . '%')
+                    ->orWhere('incident_type', 'LIKE', '%' . $s . '%')
+                    ->orWhere('image_path')
+                    ->get();
+                }
+            }]
+        ])->paginate(6);
+
         return view('key_actor.report.viewreport', compact('posts'));
     }
     public function updateReport(Request $request, $id)
