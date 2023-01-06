@@ -4,6 +4,7 @@ namespace App\Http\Controllers\KeyActor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -40,4 +41,14 @@ class ReportController extends Controller
         $posts = Post::findorFail($id);
         return view('key_actor.report.edit')->with('posts', $posts);
     }
+
+
+
+    // Show Phone number
+    public function showPhone()
+    {
+        $credlist = $phone = User::find()->phone;
+        return view('key_actor.report.edit', compact('$credlist'));
+    }
+    
 }

@@ -23,6 +23,8 @@ class Posts extends Migration
             $table->timestamps();
             $table->boolean('legitimacy')->nullable();
             $table->tinyInteger('response_status')->nullable();
+            $table->BigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');  
         });
     }
 

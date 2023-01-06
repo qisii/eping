@@ -19,7 +19,8 @@ class Post extends Model
         'response_status', 
         'legitimacy',
         'created_at',
-        'updated_at'];
+        'updated_at',
+        'user_id'];
 
 
 
@@ -34,4 +35,10 @@ class Post extends Model
         'legitimacy',
         'created_at',
         'updated_at'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
 }

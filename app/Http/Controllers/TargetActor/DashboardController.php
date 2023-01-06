@@ -5,6 +5,7 @@ namespace App\Http\Controllers\TargetActor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // added
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Feed;
 use App\Models\Post;
@@ -72,6 +73,7 @@ class DashboardController extends Controller
         $file->latitude = $request->latitude;
         $file->longitude = $request->longitude;
         $file->legitimacy = $request->legitimacy;
+        $file->user_id= Auth::id();
         $newFile = $request->file('image');
         if($newFile) {
             $file_path = $newFile->store('images');
@@ -82,8 +84,10 @@ class DashboardController extends Controller
         
         return view('target_actor.views.submitreport', compact('types'));
     }
-    public function viewReport() {
-        $posts = Post::all();
+    public function viewReport() 
+    {
+        $currentuser = Auth::id();
+        $posts = Post::where('user_id', $currentuser)->get();
         return view('target_actor.views.viewreport', compact('posts'));
     }
 }
