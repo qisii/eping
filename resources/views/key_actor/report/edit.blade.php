@@ -8,6 +8,43 @@
 
 
 <div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+            <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Emergency Number 1</th>
+                <th>Emergency Number 2</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>  
+                <tr>
+                    <td>{{ $posts->first_name }}</td>
+                    <td>{{ $posts->last_name }}</td>
+                    <td>{{ $posts->phonenumber }}</td>
+                    
+                    <td>{{ $posts->emergency_number1 }}</td>
+                    <td>{{ $posts->emergency_number2 }}</td>
+                    <td>{{ $posts->address }}</td>
+                </tr>       
+        </tbody>     
+           
+    </table>
+
+
+
+
+
+
+
+
+
     <form action="/key_actor/report/updatereport/{{ $posts->id}}" method="post" enctype="multipart/form-data">
         @csrf 
         @if($errors->any())

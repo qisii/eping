@@ -5,9 +5,9 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4">Target Actor</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">My Reports</li>
+        <li class="breadcrumb-item active">Map of Confirmed Reports</li>
     </ol>
-    <div> click to view location</div>
+    
     <div class="card-body">
         @if (session('message'))
             <div class="alert alert-success">{{  session('message')  }}</div>
@@ -21,7 +21,7 @@
             <table class="table table-bordered">
                 <tbody>
                             <tr> 
-                            <td onclick="location.href='viewspec/{{$post->id}}'">
+                            <td>
                                 <h3>{{ $post->incident_type}}</h3>
                             </td>
 

@@ -91,4 +91,18 @@ class DashboardController extends Controller
         $posts = Post::where('user_id', $currentuser)->get();
         return view('target_actor.views.viewreport', compact('posts'));
     }
+    public function specreport($id){
+
+        $posts = Post::findorFail($id);
+
+        return view('target_actor.views.viewspec')->with('posts', $posts);
+
+    }
+    public function legitreports(){
+
+        $posts = Post::where('legitimacy', '=', '1')->get();
+        
+        return view('target_actor.views.viewlegit')->with('posts', $posts);
+
+    }
 }

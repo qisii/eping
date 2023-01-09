@@ -19,6 +19,7 @@
             </form>
         </div>
 
+        
         <form action="{{ url('key_actor/filter-feeds') }}" method="GET">
             @csrf
             <div class="row">
@@ -50,7 +51,7 @@
             </div>
 
         </form>
-        
+        <p>Click Report to View Location on Map</p>
         <table class="table table-bordered">
             <thead>
                 <tr>
