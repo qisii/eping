@@ -51,26 +51,51 @@ class AdminController extends Controller
     {
         //filter by date and sort by
         //$users = User::sortable()->paginate(11);
-        $todayDate = Carbon::now()->format('Y-m-d');
-        // // $todayDate = $request->input('todayDate');
-        $users = User::when($request->date != null, function ($q) use ($request) {
-                        return $q->whereDate('created_at', $request->date);
-                    }, function ($q) use ($todayDate){
-                        return $q->whereDate('created_at', $todayDate);
-                    })
-                    ->when($request->role_as != null, function ($q) use ($request) {
-                        return $q->where('role_as', $request->role_as);
-                    })
-                    ->when($request->created_by != null, function ($q) use ($request) {
-                        return $q->where('created_by', $request->created_by);
-                    })
-                    ->when($request->status != null, function ($q) use ($request) {
-                        return $q->where('status', $request->status);
-                    })
-                    ->sortable()
-                    ->paginate(5);
+        //$todayDate = Carbon::now()->format('Y-m-d');
+        $todayDate = $request->input('todayDate');
+
+        if($request->todayDate != null && $request->role_as != null && $request->status != null){
+            $users = User::whereDate('created_at', $request->todayDate)->where('role_as', $request->role_as)->where('status', $request->status)
+            ->sortable()
+            ->paginate(5);
+        }
+        elseif($request->todayDate != null){
+            $users = User::whereDate('created_at', $request->todayDate)
+            ->sortable()
+            ->paginate(5);
+        }
+        elseif($request->role_as != null){
+            $users = User::where('role_as', $request->role_as)
+            ->sortable()
+            ->paginate(5);
+        }
+        elseif($request->status != null){
+            $users = User::where('status', $request->status)
+            ->sortable()
+            ->paginate(5);
+        }
+        else{
+            $users = User::sortable()->paginate(5);
+        }
+
+        // $users = User::when($request->todayDate != null, function ($q) use ($request) {
+        //                 return $q->whereDate('created_at', $request->todayDate);
+        //             }, function ($q) use ($todayDate){
+        //                 return $q->whereDate('created_at', $todayDate);
+        //             })
+        //             ->when($request->role_as != null, function ($q) use ($request) {
+        //                 return $q->where('role_as', $request->role_as);
+        //             })
+        //             ->when($request->created_by != null, function ($q) use ($request) {
+        //                 return $q->where('created_by', $request->created_by);
+        //             })
+        //             ->when($request->status != null, function ($q) use ($request) {
+        //                 return $q->where('status', $request->status);
+        //             })
+        //             ->sortable()    
+        //             ->paginate(5);
                       
-        return view('admin.users.filter', compact('users'));
+        return view('admin.users.filter', compact('users', 'todayDate'));
     }
 
     // view create admin page
@@ -229,6 +254,15 @@ class AdminController extends Controller
                 'description'  => $request->description,
             ]);
         }
+
+        if($request->status !=''){
+            // $validated = $request->validate([
+            //     'emergency_number2' => [ 'digits:9', 'unique:users'],
+            // ]);
+            User::findOrFail($user_id)->update([
+                'status' => $request->status,
+            ]);
+        }
         return redirect("/admin/profile/".$user_id)->with('message', 'User Updated Succesfully');
         
     }
@@ -260,6 +294,14 @@ class AdminController extends Controller
             ]);
             User::findOrFail($user_id)->update([
                 'email' => $request->email,
+            ]);
+        }
+        if($request->status !=''){
+            // $validated = $request->validate([
+            //     'emergency_number2' => [ 'digits:9', 'unique:users'],
+            // ]);
+            User::findOrFail($user_id)->update([
+                'status' => $request->status,
             ]);
         }
         return redirect("/admin/profile/".$user_id)->with('message', 'User Updated Succesfully');
@@ -346,6 +388,16 @@ class AdminController extends Controller
                 'emergency_number2' => $request->emergency_number2,
             ]);
         }
+
+        if($request->status !=''){
+            // $validated = $request->validate([
+            //     'emergency_number2' => [ 'digits:9', 'unique:users'],
+            // ]);
+            User::findOrFail($user_id)->update([
+                'status' => $request->status,
+            ]);
+        }
+
         return redirect("/admin/profile/".$user_id)->with('message', 'User Updated Succesfully');
     }
 
@@ -354,6 +406,12 @@ class AdminController extends Controller
     {
         $user = User::find($user_id);
         return view('admin.users.edit', compact('user'));
+    }
+
+    public function editProfile($user_id)
+    {
+        $user = User::find($user_id);
+        return view('admin.users.profile', compact('user'));
     }
 
     

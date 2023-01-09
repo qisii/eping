@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <label>Filter by Date</label>
-                    <input type="date" name="date" class="form-control">
+                    <input type="date" name="todayDate" class="form-control">
                 </div>
             </div>
 
@@ -48,11 +48,11 @@
                         <option value="0">Target User</option>
                         <option value="2">Key Actor</option>
                     </select>
-                    <select name="created_by" id="" class="form-select">
+                    {{-- <select name="created_by" id="" class="form-select">
                         <option value="">Select All Creator</option>
                         <option value="1">Admin</option>
                         <option value="0">Target User</option>
-                    </select>
+                    </select> --}}
                     <select name="status" id="" class="form-select">
                         <option value="">Select All Status</option>
                         <option value="1">Active</option>

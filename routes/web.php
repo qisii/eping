@@ -44,7 +44,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function(){
     Route::put('/update_admin/{user_id}',[App\Http\Controllers\Admin\AdminController::class, 'updateAdmin']);
     Route::put('/update_eka/{user_id}',[App\Http\Controllers\Admin\AdminController::class, 'updateEka']);
 
-    Route::get('/profile/{user_id}',[App\Http\Controllers\Admin\AdminController::class, 'editUser']);
+    Route::get('/profile/{user_id}',[App\Http\Controllers\Admin\AdminController::class, 'editProfile']);
     Route::get('/delete/{user_id}', [App\Http\Controllers\Admin\AdminController::class,'deleteUser']);
 
     Route::get('/search', [App\Http\Controllers\Admin\AdminController::class, 'searchUsers']);
@@ -96,6 +96,9 @@ Route::prefix('key_actor')->middleware(['auth', 'isKeyActor', ])->group(function
     Route::get('/report/viewreport', [App\Http\Controllers\KeyActor\ReportController::class, 'viewReport']);
     Route::get('/report/edit-report/{id}', [App\Http\Controllers\KeyActor\ReportController::class, 'editReport']);
     Route::put('/report/updatereport/{id}', [App\Http\Controllers\KeyActor\ReportController::class,'updateReport']);
+
+    Route::get('/search-report', [App\Http\Controllers\KeyActor\ReportController::class, 'searchReport']);
+    Route::get('/filter-report', [App\Http\Controllers\KeyActor\ReportController::class, 'filterReport']);
 });
 
 

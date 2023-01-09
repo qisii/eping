@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
+use Illuminate\Notifications\Notifiable;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, Notifiable, Sortable;
 
     protected $fillable = [
         'id',
@@ -20,7 +22,8 @@ class Post extends Model
         'legitimacy',
         'created_at',
         'updated_at',
-        'user_id'];
+        'user_id'
+    ];
 
 
 
@@ -34,7 +37,8 @@ class Post extends Model
         'response_status',
         'legitimacy',
         'created_at',
-        'updated_at'];
+        'updated_at'
+    ];
 
     public function user()
     {

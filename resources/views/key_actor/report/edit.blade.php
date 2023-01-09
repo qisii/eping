@@ -37,20 +37,12 @@
            
     </table>
 
-
-
-
-
-
-
-
-
-    <form action="/key_actor/report/updatereport/{{ $posts->id}}" method="post" enctype="multipart/form-data">
+    <form action="/key_actor/report/updatereport/{{$posts->id}}" method="post" enctype="multipart/form-data">
         @csrf 
         @if($errors->any())
             <div class="alert alert-danger">
                 @foreach($errors->all() as $error)
-                    <div>{{$error}}</div>
+                    <div>{{$error}}</div> 
                 @endforeach
             </div>
         @endif
@@ -93,11 +85,16 @@
                             On the Scene
                         @elseif($posts->response_status==3)
                             Case Closed
+                        @elseif($posts->response_status==0)
+                            Pending
                         @endif
                     </option>
-                    @if($posts->response_status==1)
-                       
+                    @if($posts->response_status==0)
+                        <option value="1">Responding</option>
                         <option value="2">On the Scene</option>
+                        <option value="3">Case Closed</option>
+                    @elseif($posts->response_status==1)
+                        <option value="2">On the Scene</option>   
                         <option value="3">Case Closed</option>
                     @elseif($posts->response_status==2)
                         <option value="1">Responding</option>   
@@ -124,7 +121,7 @@
                 
                 <select id="legitimacy" type="text"  name="legitimacy"  class="form-control" autofocus>
                     <option value={{$posts->legitimacy}}>
-                        @if($posts->legitimacy== NULL)
+                        @if($posts->legitimacy== 0)
                             To be set
                         @elseif($posts->legitimacy==1)
                             True
@@ -132,7 +129,7 @@
                             False
                         @endif
                     </option>
-                    @if($posts->legitimacy== NULL)
+                    @if($posts->legitimacy== 0)
                     <option value="1">True</option>
                     <option value="2">False</option> 
                     @elseif($posts->legitimacy==1)

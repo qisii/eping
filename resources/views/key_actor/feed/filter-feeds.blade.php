@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <label>Filter by Created Date</label>
-                    <input type="date" name="createdDate" value="{{ Request::get('createdDate') ?? date('Y-m-d') }}" class="form-control">
+                    <input type="date" name="createdDate" value="{{ Request::get('createdDate') ?? " " }}" class="form-control">
                 </div>
                 {{-- <div class="col-md-3">
                     <label>Filter by Expiry Date</label>

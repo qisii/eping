@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <label>Filter by Date</label>
-                    <input type="date" name="date" value="{{ Request::get('date') ?? date('Y-m-d') }}" class="form-control">
+                    <input type="date" name="todayDate" value="{{ Request::get('todayDate') ?? " " }}" class="form-control">
                 </div>
             </div>
 
@@ -49,11 +49,11 @@
                         <option value="0"{{ Request::get('role_as')== '0' ? 'selected':''}}>Target User</option>
                         <option value="2"{{ Request::get('role_as')== '2' ? 'selected':''}}>Key Actor</option>
                     </select>
-                    <select name="created_by" id="" class="form-select">
+                    {{-- <select name="created_by" id="" class="form-select">
                         <option value="">Select All Creator</option>
                         <option value="1"{{ Request::get('created_by')== '1' ? 'selected':'' }}>Admin</option>
                         <option value="0"{{ Request::get('created_by')== '0' ? 'selected':''}}>Target User</option>
-                    </select>
+                    </select> --}}
                     <select name="status" id="" class="form-select">
                         <option value="">Select All Status</option>
                         <option value="1"{{ Request::get('status')== '1'  ? 'selected':''}}>Active</option>

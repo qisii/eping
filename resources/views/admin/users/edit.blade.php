@@ -169,6 +169,27 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="emergency_number2" class="col-md-4 col-form-label text-md-end">{{ __('Status') }}</label>
+
+                            <div class="col-md-6">
+                                {{-- <input id="emergency_number2" type="text"  name="emergency_number2" placeholder="{{ $user->emergency_number1 }}" class="form-control" autofocus> --}}
+                                <select name="status" id="" class="form-select">
+                                    <option value="{{ $user->status }}">{{ $user->status === 1 ? "Active" : "Inactive" }}</option>
+                                    @if ($user->status == 1)
+                                        <option value="0">Inactive</option>
+                                    @elseif ($user->status == 0)
+                                        <option value="1">Active</option>
+                                    @endif
+                                </select>
+                                @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                     <!-- ADMIN -->
                     @elseif($user->role_as == 1)
                         <div class="row mb-3">
@@ -218,6 +239,26 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" >
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="emergency_number2" class="col-md-4 col-form-label text-md-end">{{ __('Status') }}</label>
+
+                            <div class="col-md-6">
+                                {{-- <input id="emergency_number2" type="text"  name="emergency_number2" placeholder="{{ $user->emergency_number1 }}" class="form-control" autofocus> --}}
+                                <select name="status" id="" class="form-select">
+                                    <option value="{{ $user->status }}">{{ $user->status === 1 ? "Active" : "Inactive" }}</option>
+                                    @if ($user->status == 1)
+                                        <option value="0">Inactive</option>
+                                    @elseif ($user->status == 0)
+                                        <option value="1">Active</option>
+                                    @endif
+                                </select>
+                                @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -316,6 +357,27 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" >
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="emergency_number2" class="col-md-4 col-form-label text-md-end">{{ __('Status') }}</label>
+
+                            <div class="col-md-6">
+                                {{-- <input id="emergency_number2" type="text"  name="emergency_number2" placeholder="{{ $user->emergency_number1 }}" class="form-control" autofocus> --}}
+                                <select name="status" id="" class="form-select">
+                                    <option value="{{ $user->status }}">{{ $user->status === 1 ? "Active" : "Inactive" }}</option>
+                                    @if ($user->status == 1)
+                                        <option value="0">Inactive</option>
+                                    @elseif ($user->status == 0)
+                                        <option value="1">Active</option>
+                                    @endif
+                                </select>
+                                @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                     @endif

@@ -7,6 +7,7 @@ use App\Models\FeedFiles;
 
 // added
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -48,34 +49,56 @@ class FeedController extends Controller
 
     public function filterFeeds(Request $request)
     {
-        // $createdDate = Carbon::now()->format('Y-m-d');
+        //$createdDate = Carbon::now()->format('Y-m-d');
         // $expiryDate = Carbon::now()->format('Y-m-d');
         $createdDate = $request->input('createdDate');
-        $expiryDate = $request->input('expiryDate');
+        //$expiryDate = $request->input('expiryDate');
         
-        $feeds = Feed::when($request->createdDate != null, function ($q) use ($request) {
-                        return $q->whereDate('created_at', $request->createdDate);
-                    }, function ($q) use ($createdDate){
-                        return $q->whereDate('created_at', $createdDate);
-                    })
-                    // ->when($request->expiryDate != null, function ($q) use ($request) {
-                    //     return $q->whereDate('exp_date', $request->expiryDate);
-                    // }, function ($q) use ($expiryDate){
-                    //     return $q->whereDate('exp_date', $expiryDate);
-                    // })
-                    ->when($request->type != null, function ($q) use ($request) {
-                        return $q->where('type', $request->type);
-                    })
-                    // ->when($request->created_by != null, function ($q) use ($request) {
-                    //     return $q->where('created_by', $request->created_by);
-                    // })
-                    ->when($request->status != null, function ($q) use ($request) {
-                        return $q->where('status', $request->status);
-                    })
-                    ->sortable()
-                    ->paginate(5);
 
-        return view('key_actor.feed.filter-feeds', compact('feeds'));
+
+        if($request->createdDate != null && $request->type != null){
+            $feeds = Feed::whereDate('created_at', $request->createdDate)->Where('type', $request->type)
+            ->sortable()
+            ->paginate(5);
+        }
+        elseif($request->type != null){
+            $feeds = Feed::where('type', $request->type)
+            ->sortable()
+            ->paginate(5);
+        }
+        elseif($request->createdDate != null){
+            $feeds = Feed::whereDate('created_at', $request->createdDate)
+            ->sortable()
+            ->paginate(5);
+        }
+
+        else{
+            $feeds = Feed::sortable()->paginate(5);
+        }
+
+        // $feeds = Feed::when($request->createdDate != null, function ($q) use ($request) {
+        //                 return $q->whereDate('created_at', $request->createdDate);
+        //             }, function ($q) use ($createdDate){
+        //                 return $q->whereDate('created_at', $createdDate);
+        //             })
+        //             // ->when($request->expiryDate != null, function ($q) use ($request) {
+        //             //     return $q->whereDate('exp_date', $request->expiryDate);
+        //             // }, function ($q) use ($expiryDate){
+        //             //     return $q->whereDate('exp_date', $expiryDate);
+        //             // })
+        //             ->when($request->type != null, function ($q) use ($request) {
+        //                 return $q->where('type', $request->type);
+        //             })
+        //             // ->when($request->created_by != null, function ($q) use ($request) {
+        //             //     return $q->where('created_by', $request->created_by);
+        //             // })
+        //             ->when($request->status != null, function ($q) use ($request) {
+        //                 return $q->where('status', $request->status);
+        //             })
+        //             ->sortable()
+        //             ->paginate(5);
+
+        return view('key_actor.feed.filter-feeds', compact('feeds', 'createdDate'));
     }
 
     // view input to create feed
