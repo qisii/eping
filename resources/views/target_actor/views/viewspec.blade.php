@@ -14,7 +14,7 @@
             <div class="alert alert-success">{{  session('message')  }}</div>
         @endif
     </div>
-    <button onclick="location.href='viewreport'">Back </button>
+    <button onclick="location.href='/target_actor/viewreport'">Back </button>
     <div class="row">
             <table class="table table-bordered">
                 <tbody>

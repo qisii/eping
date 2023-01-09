@@ -46,9 +46,12 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function(){
 
     Route::get('/profile/{user_id}',[App\Http\Controllers\Admin\AdminController::class, 'editUser']);
     Route::get('/delete/{user_id}', [App\Http\Controllers\Admin\AdminController::class,'deleteUser']);
-    
+
     Route::get('/search', [App\Http\Controllers\Admin\AdminController::class, 'searchUsers']);
     Route::get('/filter',[App\Http\Controllers\Admin\AdminController::class,'filter']);
+
+
+    Route::get('/ticketreports',[App\Http\Controllers\Admin\AdminController::class,'ticketreports']);
 });
 
 

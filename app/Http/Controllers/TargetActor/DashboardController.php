@@ -103,6 +103,5 @@ class DashboardController extends Controller
         $posts = Post::where('legitimacy', '=', '1')->get();
         
         return view('target_actor.views.viewlegit')->with('posts', $posts);
-
     }
 }

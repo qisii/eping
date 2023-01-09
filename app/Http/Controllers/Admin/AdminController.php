@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 // added
 use Illuminate\Support\Carbon;
@@ -364,5 +365,11 @@ class AdminController extends Controller
         // return view('admin.users.index')->with('message', 'User Deleted Successfully');
         return redirect("/admin/users")->with('message', 'User Deleted Successfully');
     }
-    
+    public function ticketreports(){
+
+        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('legitimacy', '=', '2')->get();
+        
+        return view('admin.reports.viewticket')->with('posts', $posts);
+
+    }
 }
