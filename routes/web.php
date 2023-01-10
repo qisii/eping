@@ -118,7 +118,7 @@ Route::prefix('target_actor')->middleware(['auth', 'isTargetActor'])->group(func
     Route::post('/submitreport', [App\Http\Controllers\TargetActor\DashboardController::class, 'upload']);
     Route::get('/viewreport', [App\Http\Controllers\TargetActor\DashboardController::class, 'viewReport']);
     Route::get('/viewspec/{id}', [App\Http\Controllers\TargetActor\DashboardController::class, 'specreport']);
-    Route::get('/viewlegit', [App\Http\Controllers\TargetActor\DashboardController::class, 'mapg']);
+    Route::get('/viewlegit', [App\Http\Controllers\TargetActor\DashboardController::class, 'legitreports']);
 
 
 
