@@ -104,4 +104,11 @@ class DashboardController extends Controller
         
         return view('target_actor.views.viewlegit')->with('posts', $posts);
     }
+
+    public function mapg()
+    {
+        $locations = DB::table('posts')->get();
+ 
+        return view('target_actor.views.viewlegit', ['locations' => $locations]);
+    }
 }

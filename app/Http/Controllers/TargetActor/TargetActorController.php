@@ -97,5 +97,6 @@ class TargetActorController extends Controller
         }
         return redirect("/target_actor/profile/".$user_id)->with('message', 'User Updated Succesfully');
     }
+    
 }
 
