@@ -1,0 +1,66 @@
+@import "/css/admin/admin.css";
+:root {
+    --updateBtn : #94d2bd;
+    --redBtn : #f22e2e;
+    --createBtn : #fd4f3d;
+    --downloadBtn : #6c757d;
+}
+
+.containers {
+    display: flex;
+    justify-content: space-around;
+    gap: 4rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 500;
+}
+.hero h1 span {
+    color: var(--lightred);
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin: .5em 0;
+}
+input {
+    border: var(--border);
+    width: 100%;
+    height: 4rem;
+    margin: .5em 0;
+    border-radius: .5em;
+    padding: 0 1em;
+}
+
+h2 {
+    margin-bottom: 1em;
+}
+.input-field1 {
+    gap: 2rem;
+    display: flex;
+    /* border: var(--border); */
+    width: 100%;
+}
+.input-field1 div {
+    width: 100%;
+}
+.col1, .col2{
+    /* border: var(--border); */
+    flex-basis: 45%;
+    padding: 3em 5em;
+}
+.update {
+    display: flex;
+    justify-content: end;
+    padding: 0 7em;
+}
+button {
+    font-weight: bold;
+    border-radius: 3rem;
+    height: 4rem;
+    width: 20%;
+    font-size: 1.5rem;
+    background-color: var(--createBtn);
+    color: var(--white);
+}

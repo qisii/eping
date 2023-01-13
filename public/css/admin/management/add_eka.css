@@ -1,0 +1,94 @@
+@import "/css/admin/admin.css";
+:root {
+    --updateBtn : #94d2bd;
+    --redBtn : #f22e2e;
+    --createBtn : #fd4f3d;
+    --downloadBtn : #6c757d;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 500;
+}
+.hero h1 span {
+    color: var(--lightred);
+}
+.row-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0em;
+}
+.row1, .row2{
+    /* border: var(--border); */
+    /* flex-basis: 45%; */
+    padding: 1.5em 5em;
+}
+input {
+    width: 100%;
+    border: var(--border);
+    height: 4rem;
+    border-radius: .5em;
+    padding: 0 1em;
+}
+textarea {
+    border-radius: .5em;
+    padding: 1em 1em;
+    width: 100%;
+    border: var(--border);
+    height: 5rem;
+    max-height: 6rem;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin: 1em 0;
+}
+.input-field1 {
+    display: flex;
+    gap: 5em;
+}
+.input-field1 div {
+    width: 100%;
+}
+
+.col-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 2em;
+}
+.col1, .col2 {
+    flex-basis: 45%;
+}
+
+.choices {
+    margin: 2em 0 0;
+    display: flex;
+    justify-content: space-around;
+}
+.choices div {
+    justify-content: space-around;
+    margin: auto;
+    flex-basis: 30%;
+    display: flex;
+    align-items: center;
+}
+.choices div input {
+    width: 2rem;
+    height: 1.5rem;
+}
+
+.update {
+    margin: 3em 0 0;
+    display: flex;
+    justify-content: end;
+    padding: 0 7em;
+}
+button {
+    font-weight: bold;
+    border-radius: 3rem;
+    height: 4rem;
+    width: 20%;
+    font-size: 1.5rem;
+    background-color: var(--createBtn);
+    color: var(--white);
+}

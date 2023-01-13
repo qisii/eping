@@ -1,0 +1,204 @@
+@import "/css/admin/admin.css";
+:root {
+    --updateBtn : #94d2bd;
+    --redBtn : #f22e2e;
+    --createBtn : #fd4f3d;
+}
+body {
+    position: relative;
+}
+/* *module content starts */
+.hero {
+    padding: 3rem 3rem;
+    position: relative;
+}
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 500;
+}
+nav {
+    margin: 3rem 0 1rem;
+}
+nav ul li {
+    display: inline-block;
+    margin-right: 6rem;
+}
+nav ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--black);
+    position: relative;
+}
+nav ul li a.active span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    margin-top: 2rem;
+    bottom: -.8em;
+    background: red;
+}
+.module-search {
+    display: flex;
+    margin: 2em 0;
+    justify-content: space-between;
+}
+.module-search input {
+    border: var(--border);
+    height: 4.5rem;
+    width: 30%;
+    padding: 0 2em;
+    font-size: 1.2rem;
+    border-radius: 3rem;
+    font-family: 'Poppins', 'FontAwesome'; 
+}
+
+.module-actions {
+    display: flex;
+    justify-content: space-between;
+}
+.module-actions button {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .7em;
+    height: 4rem;
+    padding: 0 1em;
+    border-radius: .5rem;
+}
+.create-btn {
+    background-color: var(--redBtn);
+    color: var(--white);
+}
+.filter-btn {
+    background-color: transparent;
+}
+.filter-btn i {
+    color: var(--redBtn);
+}
+/* module top ends */
+/* *module table starts */
+
+.module-table {
+    margin: 2em 0;
+}
+.module-table table, th, td{
+    border: solid 2px #d1cfcf; 
+}
+table {
+    width: 100%;
+    background-color: #efefef;
+}
+table th {
+    background-color: #f6f6f6;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1em 0;
+    text-align: center;
+}
+tr:nth-child(even) {background-color: #f6f6f6;}
+table td {
+    padding: 1em .5em;
+}
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.action button{
+    box-shadow: var(--buttonShadow);
+    border-radius: .5rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    color: var(--white);
+}
+.update-btn {
+    background-color: var(--updateBtn);
+}
+.delete-btn {
+    background-color: var(--redBtn);
+}
+
+/* module table ends */
+/* *module popup */
+#module-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.01);
+    width: 40%;
+    height: 52rem;
+    visibility: hidden;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    border-radius: 3rem;
+    transition: transform 0.2s;
+    padding: 2rem 2.5rem;
+}
+#module-popup.active {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+.close-action {
+    display: flex;
+    justify-content: end;
+}
+.close-action #close-btn {
+    color: var(--light-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#module-popup .input-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5em;
+    margin: 2em 0;
+    padding: 0 3.5em;
+}
+#module-popup .input-fields div {
+    /* width: 100%; */
+    border: var(--border);
+    border-radius: .5rem;
+}
+#module-popup .input-fields div input {
+    width: 100%;
+    height: 4rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0 1.5em;
+}
+#module-popup .input-fields div textarea {
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 1em;
+    min-height: 25rem; max-height: 25rem;
+    
+}
+#module-popup .input-fields button {
+    background-color: var(--createBtn);
+    color: var(--white);
+    border-radius: 3rem;
+    width: 100%;
+    align-self: center;
+    height: 4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+/* to gray-out contents */
+.hero-wrapper { 
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128,128,128,0.25);
+}
+.hero-wrapper.active {
+    visibility: visible;
+}
+
+/* module popup ends */

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\TargetActor;
-
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // added
@@ -99,9 +99,22 @@ class DashboardController extends Controller
 
     }
     public function legitreports(){
+        $posts = Post::select('*')->where('legitimacy', '=', '1')
+                ->whereRaw('DATEDIFF(NOW(), created_at) < 15')
+                ->get();
 
-        $posts = Post::where('legitimacy', '=', '1')->get();
-        
+
+
+        // $posts = Post::select('*')      
+        //         ->when((Carbon::now())->diffInDays(Carbon::parse('created_at')) < 15, function ($query){
+        //             return $query->where('legitimacy', '=', '1');
+        //         })
+        //         ->get();
+        //$now = Carbon::now();
+        //$timestamp=Carbon::parse($posts->created_at);
+        //$diff=(Carbon::now())->diffInDays(Carbon::parse($posts->created_at));
+        //return $diff;
+
         return view('target_actor.views.viewlegit')->with('posts', $posts);
     }
 }

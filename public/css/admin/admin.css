@@ -1,0 +1,89 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+    /* preset colors */
+    --darkred: #591515;
+    --lightred: #F22E2E;
+    --greyred: #8C6C61;
+    --black:#08080D;
+    --white:#fff;
+    --gray: #D9D9D9;
+    --light-color:#666;
+    --light-bg:#eee;
+    --border:.2rem solid rgba(0,0,0,.1);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   /* text-transform: capitalize; */
+}
+
+html {
+    font-size: 62.5%;  /**10px*/
+    overflow-x: hidden;
+    /* scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem; */
+}
+body {  
+    background: var(--light-bg);
+}
+/* sidebar starts */
+#side_nav {
+    background: var(--white);
+    min-width: 250px;
+    
+}
+li {
+    font-size: 1.5rem;
+}
+.content {
+    min-height: 100vh;
+    width: 100%;
+}
+hr.h-color {
+    background: var(--gray);
+}
+.sidebar li.active {
+    border-left: solid 4px var(--lightred);
+}
+.sidebar li.active a, .sidebar li.active a:hover {
+    color: var(--lightred);
+}
+.sidebar li a {
+    color: var(--light-color);
+    margin: 2.5rem 0;
+}
+.sidebar li a i {
+    font-size: 2rem;
+    margin: 0 2rem;
+}
+
+.content {
+    width: 100%;
+    position: relative;
+}
+/* sidebar ends */
+/* content  starts */
+
+.content {
+    display: flex;
+    width: 100%;
+}
+.hero {
+    margin: auto;
+    width: 98%; height: 98%;
+    border-radius: 1.5rem;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    padding: 3rem 3rem;
+    position: relative;
+}
+.hero h1 span {
+    color: var(--lightred);
+}

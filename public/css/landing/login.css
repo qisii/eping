@@ -1,0 +1,164 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+    /* preset colors */
+    --darkred: #591515;
+    --lightred: #F22E2E;
+    --medred: #da2626;
+    --greyred: #8C6C61;
+    --black:#08080D;
+    --white:#fff;
+    --gray: #D9D9D9;
+    --light-color:#666;
+    --light-bg:#eee;
+    --border:.2rem solid rgba(0,0,0,.1);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+
+* {
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   /* text-transform: capitalize; */
+}
+
+html {
+    font-size: 62.5%;  /**10px*/
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+}
+.container {
+    display: flex;
+    height: 100vh; width: 100%;
+    
+}
+section {
+    padding: 2em;
+}
+.bg-image {
+    background: url(/images/hospital.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 70%;
+}
+.dot {
+    height: 10rem; width: 10rem;
+    cursor: pointer;
+}
+.login {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+.login a {
+    color: var(--lightred);
+}
+.login-field {
+    width: 95%;
+}
+.login-nav {
+    display: none;
+
+}
+
+.login-field h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    font-style: bold;
+    margin-bottom: .5em;
+}
+.login-field h1 span{
+    color: var(--lightred);
+}
+.input-field {
+    display: flex;
+    flex-direction: column;
+    
+}
+.input-field input {
+    margin: 1em 0;
+    padding: 0 1em;
+    border-radius: .5rem;
+    height: 4rem;
+    border: 1px solid #B4B4B4;
+    transition: all 1s ease-in-out;
+}
+
+.input-field input:focus {
+    border: 2px solid var(--lightred);
+}
+.forgot {
+    font-size: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin: .5em 0 4em;
+}
+.input-field button {
+    background-color: var(--medred);
+    color: var(--white);
+    margin: 2em 0;
+    padding: 1em;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all .2s ease;
+}
+.input-field button:hover {
+    background-color: var(--lightred);
+}
+.input-field p {
+    font-size: 1.3rem;
+}
+.error-message span{
+    font-weight: bold;
+    color: var(--lightred);
+}
+
+@media all and (max-width: 700px) {
+    html {
+        font-size: 50%;
+    }
+
+    .bg-image {
+        display: none;
+    }
+    .login {
+        width: 100%;
+        /* height: 60%; */
+        background: url(/images/hospital.png);
+        background-repeat: no-repeat;
+        background-size: cover;   
+    }
+    
+    .login-field {
+        /* height: 65%; */
+        background: var(--white);
+        border: var(--border);
+        padding: 5em 2em;
+        border-radius: 2rem;
+    }
+    .login-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-nav .dot {
+        width: 10rem; height: 10rem;
+        margin: 0 0 2em;
+        cursor: pointer;
+    }
+    .login-field h1 {
+        text-align: center;
+    }
+
+    .error-message span {
+        font-size: 1.3rem;
+    }
+}

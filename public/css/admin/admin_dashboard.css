@@ -1,0 +1,7 @@
+.sidebar li.nav-dashboard {
+    border-left: solid 4px var(--lightred);
+}
+
+.sidebar li.nav-dashboard a {
+    color: var(--lightred);
+}

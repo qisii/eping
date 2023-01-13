@@ -1,0 +1,256 @@
+@import "/css/admin/admin.css";
+
+:root {
+    --primaryBtn : #007bff;
+    --secondaryBtn : #6c757d;
+    --successBtn : #28a745;
+    --dangerBtn : #dc3545;
+    --buttonShadow : rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.module-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.module-top h1 {
+    font-size: 5rem;
+    font-weight: 600;
+}
+.module-top h1 span {
+    color: var(--lightred);
+}
+.module-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding: 0 5rem;
+}
+.module-action input {
+    border: var(--border);
+    font-size: 1.3rem;
+    padding: 1em;
+    height: 4rem;
+    width: 30%; 
+    border-radius: .5rem;
+    font-family: 'Poppins', 'FontAwesome'; 
+}
+.module-action button {
+    
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    padding: 1em;
+    border-radius: .5rem;
+    background-color: var(--primaryBtn);
+    font-size: 1.5rem;
+    color: var(--white);
+    box-shadow: var(--buttonShadow);
+}
+.module-action button i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+/* module sort section */
+
+.module-sort {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 0 5rem;
+}
+.module-sort select {
+    text-align: center;
+    width: 20%;
+    height: 3.5rem;
+}
+.module-sort button {
+    margin-left: 2rem;
+    width: 8%;
+    font-size: 1.3rem;
+    height: 3.5rem;
+    background-color: var(--secondaryBtn);
+    color: var(--white);
+    border-radius: .5rem;
+    box-shadow: var(--buttonShadow);
+
+}
+
+/* *Table for module starts */
+
+.module-display {
+    /* border: 1px solid black; */
+    padding: 2rem 5rem;
+}
+
+
+.module-table table, th, td{
+    border: solid 2px #d1cfcf; 
+}
+table {
+    width: 100%;
+    background-color: #efefef;
+}
+table th {
+    background-color: #f6f6f6;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 1rem .5rem;
+    width: 3rem;
+    text-align: center;
+}
+tr:nth-child(even) {background-color: #f6f6f6;}
+table td {
+    padding: 1.3rem 1rem;
+}
+.action {
+    /* padding: 0; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    /* justify-content: space-around; */
+}
+.action button{
+    box-shadow: var(--buttonShadow);
+    border-radius: .5rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    color: var(--white);
+}
+.update-btn {
+    background-color: var(--primaryBtn);
+}
+.delete-btn {
+    background-color: var(--dangerBtn);
+}
+
+/* Table for module ends */
+/*  * Pagination Starts */
+.module-pagination {
+    padding: 0 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+.module-pagination button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondaryBtn);
+    box-shadow: var(--buttonShadow);
+    color: var(--white);
+    border-radius: .5rem;
+    height: 4rem;
+    width: 4rem;
+}
+
+/*   Pagination ends */
+
+
+/* * popup upload module starts */
+
+#add-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    width: 40%;
+    height: 52rem;
+    visibility: hidden;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    border-radius: 3rem;
+    transition: transform 0.2s;
+    padding: 3.5rem 2rem;
+}
+#add-popup.active {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+.close {
+    display: flex;
+    justify-content: end;
+}
+.close a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: red;
+}
+.input-fields {
+    padding: 0em 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+/* module tile */
+.input-fields div .module-title {
+    padding: 0 1em;
+    width: 100%;
+    height: 5rem;
+    border: var(--border);
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 1rem;
+}
+/* module description */
+.input-fields div textarea {
+    padding: 2rem 2rem;
+    border: var(--border);
+    width: 100%;
+    height: 15rem;
+    max-height: 20rem;
+    border-radius: 1rem;
+    font-size: 1.3rem;
+
+}
+.select-eka {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    padding: 0 2em;
+    height: 5rem;
+    border: var(--border);
+    border-radius: .5rem;
+}
+.select-eka select {
+    text-align: center;
+    width: 100%;
+    height: 3rem;
+
+}
+.upload-file {
+    font-size: 1.2rem;
+    padding: 1em 2em;
+    height: 5rem;
+    border: var(--border);
+    border-radius: .5rem;
+}
+.upload-file label {
+    margin-right: 1rem;
+}
+.submit-module {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submit-module button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    padding: 1em;
+    border-radius: .5rem;
+    background-color: var(--successBtn);
+    font-size: 1.5rem;
+    color: var(--white);
+    box-shadow: var(--buttonShadow);
+}
+.submit-module button i {
+    margin-right: .5em;
+}
+/*  popup upload module ends */

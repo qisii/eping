@@ -1,0 +1,149 @@
+@import "/css/admin/admin.css";
+:root {
+    --updateBtn : #94d2bd;
+    --redBtn : #f22e2e;
+    --createBtn : #fd4f3d;
+    --downloadBtn : #6c757d;
+}
+body {
+    position: relative;
+}
+/* *module content starts */
+.hero {
+    padding: 3rem 3rem;
+    position: relative;
+}
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 500;
+}
+.hero h2 {
+    margin: 3rem 0 0;
+    font-size: 3rem;
+}
+hr {
+    margin: 3em 0;
+}
+.update-module-contents {
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+}
+.update-module-contents h3 {
+    color: var(--lightred);
+}
+.update-module-contents > div {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* *materials uploaded */
+.materials-uploaded {
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0;
+    width: 100%;
+    padding: 0 2em;
+    gap: 2em;
+}
+.material-content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.material-content a {
+    font-size: 1.5rem;
+}
+.material-content button {
+    font-size: 1.5rem;
+    margin-left: 1em;
+    height: 3rem;
+    width: 3rem;
+    border-radius: .3rem;
+    color: white;
+}
+.download-btn {
+    background-color: var(--downloadBtn);
+}
+.edit-btn {
+    background-color: var(--updateBtn);
+}
+.delete-btn {
+    background-color: var(--redBtn);
+}
+
+
+/* *add topic  */
+.add-content {
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0;
+    width: 100%;
+    padding: 0 2em;
+    gap: 2em;
+}
+.add-content label {
+    font-size: 2rem;
+}
+.add-content input {
+    border: var(--border);
+    width: 100%;
+    height: 4rem;
+    padding: 1em 2em;
+    border-radius: .5rem;
+    
+}
+.add-content textarea {
+    border: var(--border);
+    width: 100%;
+    padding: 1em 2em;
+    border-radius: .5rem;
+    max-height: 20rem;
+}
+
+/* *materials info */
+.materials-info-content {
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0;
+    width: 100%;
+    padding: 0 2em;
+    gap: 2em;
+}
+.materials-info-content label {
+    font-size: 2rem;
+}
+.materials-info-content input {
+    border: var(--border);
+    width: 100%;
+    height: 4rem;
+    padding: 1em 2em;
+    border-radius: .5rem;
+    
+}
+.materials-info-content textarea {
+    border: var(--border);
+    width: 100%;
+    padding: 1em 2em;
+    border-radius: .5rem;
+    max-height: 26rem;
+}
+
+.update-section {
+    display: flex;
+    justify-content: end;
+    padding: 0 5em;
+}
+
+.update-section button {
+    display: flex;
+    align-items: center;
+    margin: 1.5em 0;
+    height: 4rem;
+    padding: .5em 5em;
+    border-radius: 2.5rem;
+    color: white;
+    background-color: var(--redBtn);
+    font-size: 2rem;
+}

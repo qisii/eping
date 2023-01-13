@@ -1,0 +1,124 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+    /* preset colors */
+    --darkred: #591515;
+    --lightred: #F22E2E;
+    --greyred: #8C6C61;
+    --black:#08080D;
+    --white:#fff;
+    --gray: #D9D9D9;
+    --light-color:#666;
+    --light-bg:#eee;
+    --border:.2rem solid rgba(0,0,0,.1);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-transform: capitalize;
+}
+
+html {
+    font-size: 62.5%;  /**10px*/
+    overflow-x: hidden;
+    /* scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem; */
+}
+body {
+    background: var(--light-bg);
+}
+/* sidebar starts */
+#side_nav {
+    background: var(--white);
+    min-width: 250px;
+    
+}
+li {
+    font-size: 1.5rem;
+}
+.content {
+    min-height: 100vh;
+    width: 100%;
+}
+hr.h-color {
+    background: var(--gray);
+}
+.sidebar li.active {
+    border-left: solid 4px var(--lightred);
+}
+.sidebar li.active a, .sidebar li.active a:hover {
+    color: var(--lightred);
+}
+.sidebar li a {
+    color: var(--light-color);
+    margin: 2.5rem 0;
+}
+.sidebar li a i {
+    font-size: 2rem;
+    margin: 0 2rem;
+}
+section {
+    padding: 5rem 15rem;
+}
+.content {
+    width: 100%;
+}
+.top-bar input {
+    width: 50rem;
+    height: 4rem;
+    border-radius: 30px;
+    padding: 1rem 2rem;
+    border: 1px solid black;
+}
+/* sidebar ends */
+/* content  starts */
+
+.main-container .content {
+    display: flex;
+    width: 100%;
+}
+.main-container .content .hero {
+    margin: auto;
+    padding: 4rem;
+    width: 95%; height: 95%;
+    border-radius: 1.5rem;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+}
+.main-container .content .hero .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0 2rem;
+}
+.top-bar h1 {
+    font-size: 4rem;
+    font-weight: 900;
+}
+.top-bar span {
+    color: var(--lightred);
+}
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile a {
+    text-decoration: underline;
+    color: var(--lightred);
+}
+.profile span {
+    margin: 0 1rem;
+    height: 3rem; width: 3rem;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
