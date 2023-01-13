@@ -2,11 +2,30 @@
 @section('title', 'Blog Dashboard')
 @section('content')
 
-<div class="container-fluid px-4">
+<style>
+    .click {
+        cursor: pointer;
+    }
+    table {
+        width: 100%;
+    }
+    th {
+        width: 10%;
+        font-size: 12px
+    }
+    td {
+        padding: 5px;
+    }
+    @media (max-width:550px) {
+        p {
+            font-size: 10px
+        }
+
+    }
+</style>
+
+<div class="container-fluid">
     <h1 class="mt-4">Target Actor</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">My Reports</li>
-    </ol>
     <div> click to view location</div>
     <div class="card-body">
         @if (session('message'))
@@ -15,63 +34,57 @@
     </div>
 
     <div class="row">
-        <form method="POST" enctype="multipart/form-data">
+        <table class="table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">Emergency Type</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date</th>
+                <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <form method="POST" enctype="multipart/form-data">
             @csrf
             @foreach ($posts as $post)
-            <table class="table table-bordered">
                 <tbody>
-                            <tr> 
-                            <td onclick="location.href='viewspec/{{$post->id}}'">
-                                <h3>{{ $post->incident_type}}</h3>
-                            </td>
-
-                            <td>
-                                @if($post->description != NULL)
-                                <h3>Description</h3>
-                                <p>{{  $post->description  }}</p>
-                                @endif
-                                <img src="{{  url('storage/app/' . $post->image_path)  }}" />
-                            </td>
-                            <td>
-                                @if($post->response_status==1)
-                                    <h2>A response Team is on your Way.
-                                        Please wait in a safe area.
-                                    </h2>
-                                @elseif($post->response_status==2)
-                                    <h2>The response Team is on the scene.</h2>
-                                @else
-                                    <h2>Your report is to be seen</h2>
-                                @endif
-                            </td>
-                            @if($post->updated_at != $post->created_at && $post->response_status == 1)
-                            <td>
-                                
-                                <h2>This report was seen at {{$post->updated_at}} </h2>
-                                
-
-                            </td>
-                            @elseif($post->updated_at != $post->created_at && $post->response_status == 2)
-                            <td>
-                                
-                                <h2>The Response Team Arrived at {{$post->updated_at}} </h2>
-                                
-
-                            </td>
+                    <tr>
+                        <td class="click" onclick="location.href='viewspec/{{$post->id}}'">
+                                <p>{{ $post->incident_type}}</p>
+                        </td>
+                        <td>
+                            @if($post->description != NULL)
+                            <p>{{  $post->description  }}</p>
                             @endif
-                            <td>
-                                <h2>This report was created at {{$post->created_at}} </h2>
-
+                        </td>
+                        <td>
+                            @if($post->response_status==1)
+                                <p>A response Team is on your Way.
+                                    Please wait in a safe area.
+                                </p>
+                            @elseif($post->response_status==2)
+                                <p>The response Team is on the scene.</p>
+                            @else
+                                <p>Your report is to be seen</p>
+                            @endif
+                        </td>
+                        @if($post->updated_at != $post->created_at && $post->response_status == 1)
+                            <td>       
+                                <p>This report was seen at {{$post->updated_at}} </p>
                             </td>
-                        
-                        </tr>
+                        @elseif($post->updated_at != $post->created_at && $post->response_status == 2)
+                            <td>
+                                <p>The Response Team Arrived at {{$post->updated_at}} </p>
+                            </td>
+                        @endif
+                        <td>
+                            <p>This report was created at {{$post->created_at}} </p>
 
+                        </td>
+                    </tr>
                 </tbody>
-
-            </table>
             @endforeach
-
-       
-        </form>
+        </table>
     </div>
 </div>
 

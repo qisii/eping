@@ -1,5 +1,5 @@
 @extends('layouts.targetactor-master')
-@section('title', 'Blog Dashboard')
+@section('title', 'Reports Visualization')
 @section('content')
 
 <style>
@@ -12,7 +12,7 @@
 </style>
 <div class="container-fluid d-flex justify-content-center align-items-center ">
     {{-- <h1 class="mt-4">Target Actor</h1> --}}
-    <div class="container">
+    <div class="container ">
         <div class="readersack">
             <div class="container">
                 <div class="row">

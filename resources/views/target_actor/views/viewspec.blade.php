@@ -2,75 +2,90 @@
 @section('title', 'Blog Dashboard')
 @section('content')
 
+<style>
+    #map {
+        /* width: 80%; */
+        border-radius: 10px;
+        height: 500px;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    }
+    .row {
+    }
+    th {
+        width: 10%;
+        font-size: 12px
+    }
+    td {
+        padding: 5px;
+    }
+    @media (max-width:550px) {
+        p {
+            font-size: 10px
+        }
 
+    }
+</style>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Target Actor</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active"></li>
-    </ol>
-    
     <div class="card-body">
         @if (session('message'))
             <div class="alert alert-success">{{  session('message')  }}</div>
         @endif
     </div>
-    <button onclick="location.href='/target_actor/viewreport'">Back </button>
+    {{-- <button onclick="location.href='/target_actor/viewreport'">Back </button> --}}
     <div class="row">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Attached Image</th>
-                        <th>Date</th>
+                    <th scope="col">Emergency Type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Date created</th>
+                    {{-- <th scope="col">Date</th> --}}
                     </tr>
                 </thead>
-
                 <tbody>
-                        {{-- <tr onclick="showMap({{ $posts->latitude }}, {{ $posts->    }})"> --}}
-                        <tr>
-                            <td>
-                                <h3>{{ $posts->incident_type}}</h3>
-                            </td>
-
-                            <td>
-                                @if($posts->description != NULL)
-                                <h3>Description</h3>
+                    <tr>
+                        <td>
+                            <p>{{ $posts->incident_type}}</p>
+                        </td>
+                        <td>
+                            @if($posts->description != NULL)
                                 <p>{{  $posts->description  }}</p>
-                                @endif
-                                <img src="{{  url('storage/app/' . $posts->image_path)  }}" />
-                            </td>
-                            <td>
-                                @if($posts->response_status==1)
-                                    <h2>A response Team is on your Way.
-                                        Please wait in a safe area.
-                                    </h2>
-                                @elseif($posts->response_status==2)
-                                    <h2>The response Team is on the scene.</h2>
-                                @else
-                                    <h2>Your report is to be seen</h2>
-                                @endif
-                            </td>
-                            @if($posts->updated_at != $posts->created_at && $posts->response_status == 1)
-                            <td>
-                                
-                                <h2>This report was seen at {{$posts->updated_at}} </h2>
-                                
-
-                            </td>
-                            @elseif($posts->updated_at != $posts->created_at && $posts->response_status == 2)
-                            <td>
-                                
-                                <h2>The Response Team Arrived at {{$posts->updated_at}} </h2>
-                                
-
-                            </td>
                             @endif
-                            <td>
-                                <h2>This report was created at {{$posts->created_at}} </h2>
+                            <img src="{{  url('storage/app/' . $posts->image_path)  }}" />
+                        </td>
+                        <td>
+                            @if($posts->response_status==1)
+                                <p>A response Team is on your Way.
+                                    Please wait in a safe area.
+                                </p>
+                            @elseif($posts->response_status==2)
+                                <p>The response Team is on the scene.</p>
+                            @else
+                                <p>Your report is to be seen</p>
+                            @endif
+                        @if($posts->updated_at != $posts->created_at && $posts->response_status == 1)
+                        <td>
+                            
+                            <p>This report was seen at {{$posts->updated_at}} </p>
+                            
 
-                            </td>
-                        </tr>
+                        </td>
+                        @elseif($posts->updated_at != $posts->created_at && $posts->response_status == 2)
+                        <td>
+                            
+                            <p>The Response Team Arrived at {{$posts->updated_at}} </p>
+                            
+
+                        </td>
+                        @endif
+                        <td>
+                            <p>{{$posts->created_at}} </p>
+
+                        </td>
+                    </tr>
                 </tbody>
                 <script>
                     window.addEventListener("load", function() {
@@ -84,8 +99,8 @@
     </div>
 </div>
 
-<div class="container mb-5">
-    <div id="map" style="width: 100%; height: 300px;"></div>
+<div class="container mb-5 align-items-center">
+    <div id="map" style="height: 300px;"></div>
 </div>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpITCZus5GDSeqAO0guUi7Mc80BWGSpV4&libraries=places"></script>
