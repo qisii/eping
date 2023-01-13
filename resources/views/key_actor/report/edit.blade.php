@@ -2,41 +2,22 @@
 @section('title', 'View Reports')
 @section('content')
 
-<br>
-<br>
-<br>
+<style>
+    #map {
+        /* width: 80%; */
+        border-radius: 10px;
+        height: 500px;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    }
 
 
-<div>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-            <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Phone Number</th>
-                <th>Emergency Number 1</th>
-                <th>Emergency Number 2</th>
-                <th>Address</th>
-            </tr>
-        </thead>
-        <tbody>  
-                <tr>
-                    <td>{{ $posts->first_name }}</td>
-                    <td>{{ $posts->last_name }}</td>
-                    <td>{{ $posts->phonenumber }}</td>
-                    
-                    <td>{{ $posts->emergency_number1 }}</td>
-                    <td>{{ $posts->emergency_number2 }}</td>
-                    <td>{{ $posts->address }}</td>
-                </tr>       
-        </tbody>     
-           
-    </table>
-
+</style>
+<a class="btn btn-secondary m-4" href="{{ url('key_actor/report/viewreport') }}"><i class="fa-solid fa-arrow-left-long"></i> Back </a>
+<div class="container p-4 d-grid grid-items-center">
+    <div class="container mb-3">
+        <div id="map" style="height: 300px;"></div>
+    </div>
     <form action="/key_actor/report/updatereport/{{$posts->id}}" method="post" enctype="multipart/form-data">
         @csrf 
         @if($errors->any())
@@ -57,8 +38,10 @@
             <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
 
             <div class="col-md-6">
-                <textarea  cols="10" rows="5" id="description" type="text"  name="description"  placeholder="{{$posts->description}}" class="form-control" autofocus></textarea>
-
+                {{-- <textarea  cols="10" rows="5" id="description" type="text"  name="description"  placeholder="{{$posts->description}}" class="form-control" autofocus></textarea> --}}
+                <div>       
+                    <p>{{$posts->description}}</p>
+                </div>
                 @error('description')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -66,12 +49,7 @@
                 @enderror
             </div>
         </div>
-
-
-
         {{--  This for the Response --}}
-        
-
         <div class="row mb-3">
             <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Response Status') }}</label>
 
@@ -148,12 +126,6 @@
                 @enderror
             </div>
         </div>
-        
-        
-
-
-
-
         <div class="row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button type="submit" class="btn btn-primary">
@@ -174,9 +146,9 @@
     });
 </script>
 
-<div class="container mb-5">
+{{-- <div class="container mb-5">
     <div id="map" style="width: 100%; height: 300px;"></div>
-</div>
+</div> --}}
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpITCZus5GDSeqAO0guUi7Mc80BWGSpV4&libraries=places"></script>
 

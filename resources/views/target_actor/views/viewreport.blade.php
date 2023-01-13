@@ -7,11 +7,15 @@
         cursor: pointer;
     }
     table {
-        width: 100%;
+        /* width: 90%; */
+    }
+    .container-fluid {
+        padding: 0 2em;
     }
     th {
         width: 10%;
-        font-size: 12px
+        padding: 1em
+        /* font-size: 12px */
     }
     td {
         padding: 5px;
@@ -20,20 +24,27 @@
         p {
             font-size: 10px
         }
+        h1 {
+            font-size: 1.5rem;
+        }
+        h4 {
+            font-size: 1rem;
+        }
 
     }
 </style>
 
 <div class="container-fluid">
-    <h1 class="mt-4">Target Actor</h1>
-    <div> click to view location</div>
-    <div class="card-body">
+    <h1 class="mt-4">Emergency Report Tickets : </h1>
+    {{-- <div class="card-body">
         @if (session('message'))
             <div class="alert alert-success">{{  session('message')  }}</div>
         @endif
-    </div>
+    </div> --}}
+    
 
     <div class="row">
+        <h4><span class="badge bg-primary">Click ticket to view report</span></h4>
         <table class="table-bordered">
             <thead>
                 <tr>

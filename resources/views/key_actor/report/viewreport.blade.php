@@ -7,7 +7,7 @@
     <div class="card mt-4">
         
         
-        <div class="col-md-5 my-auto">
+        {{-- <div class="col-md-5 my-auto">
             <p>Search by Description</p>
             <form action="{{ url('key_actor/search-report') }}" method="GET" role="search">
                 <div class="input-group">
@@ -17,9 +17,9 @@
                     </button>
                 </div>
             </form>
-        </div>
+        </div> --}}
 
-        
+{{--         
         <form action="{{ url('key_actor/filter-report') }}" method="GET">
             @csrf
             <div class="row">
@@ -27,10 +27,6 @@
                     <label>Filter by Created Date</label>
                     <input type="date" name="reportDate" class="form-control">
                 </div>
-                {{-- <div class="col-md-3">
-                    <label>Filter by Expiry Date</label>
-                    <input type="date" name="expiryDate" class="form-control">
-                </div> --}}
             </div>
 
             <div class="">
@@ -42,11 +38,6 @@
                         <option value="1">On the Scene</option>
                         <option value="2">Case closed</option>
                     </select>
-                    {{-- <select name="created_by" id="" class="form-select">
-                        <option value="">Select All Creator</option>
-                        <option value="1"{{ Request::get('created_by')== '1' ? 'selected':'' }}>Admin</option>
-                        <option value="0"{{ Request::get('created_by')== '0' ? 'selected':''}}>Target User</option>
-                    </select> --}}
                     <select name="legitimacy" id="" class="form-select">
                         <option value="">Select All Legitimacy</option>
                         <option value="1">True</option>
@@ -59,16 +50,13 @@
                     <button type="submit" class="btn btn-primary">Filter</button>
                 </div>
             </div>
-
-        </form>
-        <p>Click Report to View Location on Map</p>
+        </form> --}}
         <table class="table table-bordered">
             <thead>
                 <tr>
                 <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th width="80px">@sortablelink('id', 'ID')</th>
                     <th>@sortablelink('incident_type', 'Incident Type')</th>
                     <th>@sortablelink('description', 'Description')</th>
                     <th>@sortablelink('response_status', 'Response')</th>
@@ -76,14 +64,13 @@
                     <th>@sortablelink('created_at', 'Date Created')</th>
                     <th>@sortablelink('img_path', 'Image')</th>
                     <th>@sortablelink('updated_at', 'Date Updated')</th>
-                    <th>Edit</th>
+                    <th>Evaluate Report</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($posts as $post)
                   
                     <tr>
-                        <td>{{ $post->id }}</td>
                         <td>{{ $post->incident_type }}</td>
                         <td>{{ $post->description }}</td>
                         
