@@ -2,23 +2,27 @@
 @section('title', 'Blog Dashboard')
 @section('content')
 
-<div class="container-fluid px-4">
-    <h1 class="mt-4">Target Actor</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">All Verified Reports in Iligan</li>
-    </ol>
-    
-<div class="container">
-    <div class="readersack">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 ">
-                    <h3>Google Map</h3>
-                    <div id="map" style="height:800px; border: 5px solid black;"></div>
+<style>
+    #map {
+        /* width: 80%; */
+        border-radius: 10px;
+        height: 500px;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    }
+</style>
+<div class="container-fluid d-flex justify-content-center align-items-center ">
+    {{-- <h1 class="mt-4">Target Actor</h1> --}}
+    <div class="container">
+        <div class="readersack">
+            <div class="container">
+                <div class="row">
+                    <div class="container-fluid col-md-12">
+                        <h3>All Legit Reports</h3>
+                        <div id="map"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 <script type="text/javascript">

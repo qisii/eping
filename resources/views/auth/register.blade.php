@@ -1,162 +1,75 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                @foreach($errors->all() as $error)
-                                    <div>{{$error}}</div>
-                                @endforeach
-                            </div>
-                        @endif
-                        <!--  -->
-                        <div class="row mb-3">
-                            <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="first_name" type="text"  name="first_name" class="form-control" value="{{ old('first_name') }}"  autofocus>
-
-                                @error('first_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="last_name" class="col-md-4 col-form-label text-md-end">{{ __('Last Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="last_name" type="text"  name="last_name" class="form-control" value="{{ old('last_name') }}"  autofocus>
-
-                                @error('last_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="text"  name="email" class="form-control" value="{{ old('email') }}"  autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password"  class="form-control" name="password" >
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" >
-                                
-                                @error('password-confirm')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="phonenumber" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="phonenumber" type="text"  name="phonenumber" placeholder="+639" class="form-control" value="{{ old('phonenumber') }}"  autofocus>
-
-                                @error('phonenumber')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="address" class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="address" type="text"  name="address" class="form-control" value="{{ old('address') }}"  autofocus>
-
-                                @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="emergency_number1" class="col-md-4 col-form-label text-md-end">{{ __('Emergency Number 1') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="emergency_number1" type="text"  name="emergency_number1" placeholder="+639" class="form-control" value="{{ old('emergency_number1') }}"  autofocus>
-
-                                @error('emergency_number1')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="emergency_number2" class="col-md-4 col-form-label text-md-end">{{ __('Emergency Number 2') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="emergency_number2" type="text"  name="emergency_number2" placeholder="+639" class="form-control" value="{{ old('emergency_number2') }}" autofocus>
-
-                                @error('emergency_number2')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <!--  -->
-                        
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- font awesome cdn link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- local css file  -->
+    <link rel="stylesheet" href="/css/landing/signup.css" />
+  </head>
+  <body>
+    <section class="main">
+      <nav>
+        <img class="nav-logo" src="/images/eping_logo.png" alt="">
+      </nav>
+      <div class="signup-container">
+        <div class="signup-form">
+          <div class="logo">
+            <img class="nav-logo" src="/images/eping_logo.png" alt="">
+          </div>
+          <h1><span>ePing!</span> Sign up</h1>
+          <form method="POST" action="{{ route('register') }}">
+            @csrf
+            <div class="input-fields">
+                <div class="row1">
+                    <input id="first_name" type="text"  name="first_name" value="{{ old('first_name') }}"  autofocus required placeholder="First name">
+                    <input id="last_name" type="text"  name="last_name" value="{{ old('last_name') }}"  autofocus required placeholder="Last name">
+                    <input id="phonenumber" type="text"  name="phonenumber" value="{{ old('phonenumber') }}"  autofocus required placeholder="Phone Number">
                 </div>
-            </div>
+                <div class="row2">
+                    <input id="address" type="text"  name="address" value="{{ old('address') }}"  autofocus required placeholder="Address">
+                </div>
+                <div class="row2">
+                    <input id="email" type="text"  name="email" value="{{ old('email') }}"  autofocus required placeholder="Email Address">
+                </div>
+                <div class="row3">
+                    <input id="emergency_number1" type="text"  name="emergency_number1" value="{{ old('emergency_number1') }}"  autofocus required placeholder="Emergency Number 1">
+                    <input id="emergency_number2" type="text"  name="emergency_number2" value="{{ old('emergency_number2') }}" autofocus required placeholder="Emergency Number 2">
+
+                </div>
+                <div class="row4">
+                <input id="password" type="password"  name="password" required placeholder="Password">
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirm Password">
+                </div>
+                <div class="error-message">
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            @foreach($errors->all() as $error)
+                                <span>{{$error}}</span>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+                <div class="submission">
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('Register') }}    
+                    </button>   
+                <p>
+                    Already have an account?
+                    <a href="{{ route('login') }}">Sign in</a>
+                </p>
+                </div>
+          </form>
+          </div>
         </div>
-    </div>
-</div>
-@endsection
+      </div>
+    </section>
+  </body>
+  <script src="../js/script.js"></script>
+</html>
