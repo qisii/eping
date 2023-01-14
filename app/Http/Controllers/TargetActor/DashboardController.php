@@ -30,6 +30,23 @@ class DashboardController extends Controller
         
     }
 
+    public function indexFeed()
+    {
+        $date = date('Y-m-d H:i:s');
+        // $feeds = Feed::all();
+        $high = DB::table('feeds')->where('type',  '=', 'high')->where('exp_date',  '>=', $date)->orderBy('exp_date', 'desc')->get();
+        $medium = DB::table('feeds')->where('type',  '=', 'medium')->where('exp_date',  '>=', $date)->orderBy('exp_date', 'desc')->get();
+        $low = DB::table('feeds')->where('type',  '=', 'low')->where('exp_date',  '>=', $date)->orderBy('exp_date', 'desc')->get();
+        //$ekas = DB::table('users')->where('role_as',  '=', '2')->orderBy('first_name', 'desc')->get();
+        return view('target_actor.views.feed-view', compact('high', 'medium','low'));   
+    }
+
+    public function indexModule()
+    {
+        $ekas = DB::table('users')->where('role_as',  '=', '2')->orderBy('first_name', 'desc')->get();
+        return view('target_actor.views.module-view', compact('ekas'));
+    }
+
     public function viewFeed($id)
     {
         $feeds = Feed::findorFail($id);

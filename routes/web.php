@@ -107,6 +107,8 @@ Route::prefix('key_actor')->middleware(['auth', 'isKeyActor', ])->group(function
 Route::prefix('target_actor')->middleware(['auth', 'isTargetActor'])->group(function(){
     // 
     Route::get('/dashboard',[App\Http\Controllers\TargetActor\DashboardController::class, 'index']);
+    Route::get('/feed-view',[App\Http\Controllers\TargetActor\DashboardController::class, 'indexFeed']);
+    Route::get('/module-view',[App\Http\Controllers\TargetActor\DashboardController::class, 'indexModule']);
     Route::get('/profile/{user_id}',[App\Http\Controllers\TargetActor\TargetActorController::class, 'editUser']);
     Route::put('/update/{user_id}',[App\Http\Controllers\TargetActor\TargetActorController::class, 'update']);
     Route::get('/view-feed/{id}', [App\Http\Controllers\TargetActor\DashboardController::class, 'viewFeed']);

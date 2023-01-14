@@ -1,11 +1,22 @@
 @extends('layouts.app')
-
 @section('content')
+
+<style>
+    .eping {
+        background: #e73030;
+        padding: .2em .5em;
+        color: white;
+        font-weight: bold;
+        border-radius: .3rem;
+        margin-right: .5em;
+    }
+</style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header"><span class="eping">Eping</span> Reset Password</div>
 
                 <div class="card-body">
                     @if (session('status'))

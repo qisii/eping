@@ -84,31 +84,6 @@
                     @endforeach
                 </tbody>
             </table>
-
-        <!-- EKA MODULES -->
-        <br>
-        <h4>MODULE</h4>
-         <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Emergency Personnel</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            @foreach ($ekas as $eka)
-                  
-                 <tr>
-                        <td>{{ $eka->first_name }}</td>
-                        <td>{{ $eka->description }}</td>
-                        <td><a href="/target_actor/view-mat/{{ $eka->id }}">View</a></td>
-                       
-                    </tr>
-              @endforeach
-                
-            </tbody>
-        </table>
     </div>
 </div>
 
