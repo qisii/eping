@@ -424,8 +424,9 @@ class AdminController extends Controller
     }
     public function ticketreports(){
 
-        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('legitimacy', '=', '2')->get();
-        
+        // $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('legitimacy', '=', '2')->get();
+        $posts = Post::sortable();
+        $posts = Post::paginate(11);
         return view('admin.reports.viewticket')->with('posts', $posts);
 
     }

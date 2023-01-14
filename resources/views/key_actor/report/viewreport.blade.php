@@ -72,7 +72,12 @@
                   
                     <tr>
                         <td>{{ $post->incident_type }}</td>
-                        <td>{{ $post->description }}</td>
+                        <td>@if( $post->description != null)
+                                <p>{{ $post->description }}</p>
+                            @else
+                                <strong><p>NO DESCRIPTION GIVEN BY THE USER</p></strong>
+                            @endif
+                        </td>
                         
                         <td>@if($post->response_status!= null)
                                 @if($post->response_status == 1)

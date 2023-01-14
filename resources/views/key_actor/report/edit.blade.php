@@ -40,7 +40,11 @@
             <div class="col-md-6">
                 {{-- <textarea  cols="10" rows="5" id="description" type="text"  name="description"  placeholder="{{$posts->description}}" class="form-control" autofocus></textarea> --}}
                 <div>       
-                    <p>{{$posts->description}}</p>
+                    @if( $posts->description != null)
+                        <p>{{ $posts->description }}</p>
+                    @else
+                        <strong><p>NO DESCRIPTION GIVEN BY THE USER</p></strong>
+                    @endif
                 </div>
                 @error('description')
                     <span class="invalid-feedback" role="alert">

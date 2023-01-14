@@ -121,8 +121,9 @@ class ReportController extends Controller
     }
     public function editReport($id)
     {
+        $posts = Post::all();
         $posts = User::join('posts', 'posts.user_id', '=', 'users.id')->where('posts.id', '=' , $id)->first();
-
+        
         return view('key_actor.report.edit')->with('posts', $posts);
     }
    
