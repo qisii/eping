@@ -17,7 +17,7 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::sortable();
-        $users = User::paginate(11);
+        $users = User::paginate(5);
         return view('admin.users.index', compact('users'));
     }
 
@@ -125,11 +125,10 @@ class AdminController extends Controller
             'last_name'=> [ 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phonenumber' => ['required', 'digits:11', 'unique:users'],
+            'phonenumber' => ['required', 'digits:9', 'unique:users'],
             'emergency_number1' => ['required', 'digits:9'],
             'emergency_number2' => ['required', 'digits:9'],
             'address' => ['required', 'string', 'max:50'],
-            'description' => ['required', 'string', 'max:10000'],
         ]);
 
         User::create([

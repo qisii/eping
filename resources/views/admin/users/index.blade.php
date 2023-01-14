@@ -113,7 +113,6 @@
                                     Admin
                                 @elseif ($item->created_by == 2)
                                     Key Actor
-                                    
                                 @endif
                             </td>
 
