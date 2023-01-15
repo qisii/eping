@@ -7,14 +7,14 @@
     <div class="card mt-4">
         <div class="card-header">
             <h5> Material Info
-                <a href="{{url('target_actor/view-mat/'.$matfiles->created_by)}}" class="btn btn-primary btn-sm float-end">Go Back</a>
-                
+                {{-- <a href="{{url('target_actor/view-mat/'.$matfiles->created_by)}}" class="btn btn-primary btn-sm float-end">Go Back</a> --}}
+                <a href="{{url('target_actor/module-view')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
             </h5>
         </div>
 
         <div>
             <div>{{$matfiles->title}}</div>
-            <div>{{$matfiles->description}}</div>
+            {{-- <div>{{$matfiles->description}}</div> --}}
 
         </div>
        

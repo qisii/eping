@@ -51,7 +51,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function(){
     Route::get('/filter',[App\Http\Controllers\Admin\AdminController::class,'filter']);
 
 
-    Route::get('/ticketreports',[App\Http\Controllers\Admin\AdminController::class,'ticketreports']);
+    Route::get('/ticketreports',[App\Http\Controllers\Admin\ReportController::class,'ticketreports']);
+    Route::get('/search-report', [App\Http\Controllers\Admin\ReportController::class, 'searchReport']);
+    Route::get('/filter-report',[App\Http\Controllers\Admin\ReportController::class,'filterReport']);
 });
 
 

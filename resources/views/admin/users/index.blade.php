@@ -1,9 +1,13 @@
 @extends('layouts.master')
 @section('title', 'View Users')
 @section('content')
+<style>
+    svg {
+        display: none;
+    }
 
+</style>
 <div class="container-fluid px-4">
-
     <div class="card mt-4">
         <div class="card-header">
             <h4>View Users 
@@ -139,7 +143,6 @@
             </tbody>
         </table>
         <div>
-            {{-- {{ $users->appends(['search' => request()->query('search')])->links() }} --}}
             {{ $users->links() }}
         </div>
     </div>

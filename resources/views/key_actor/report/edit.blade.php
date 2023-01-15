@@ -113,10 +113,13 @@
                     </option>
                     @if($posts->legitimacy== 0)
                     <option value="1">True</option>
-                    <option value="2">False</option> 
+                    <option value="2">False</option>
+                     
                     @elseif($posts->legitimacy==1)
+                    <option value="0">To be set</option> 
                     <option value="2">False</option>
                     @elseif($posts->legitimacy==2)
+                    <option value="0">To be set</option> 
                     <option value="1">True</option>
 
 

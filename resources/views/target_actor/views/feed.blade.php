@@ -6,8 +6,8 @@
 
     <div class="card mt-4">
         <div class="card-header">
-            <h5>Update Feed
-                <a href="{{url('target_actor/dashboard')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+            <h5>View Feed File
+                <a href="{{url('target_actor/feed-view')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
                 
             </h5>
         </div>
@@ -18,6 +18,8 @@
             @endif
         </div>
         
+        <p>Feed Title: {{$feeds->title}}</p>
+
         <div>
             <div class="card-body">
             <h5>Cover</h5>

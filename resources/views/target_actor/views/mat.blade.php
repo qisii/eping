@@ -7,7 +7,7 @@
     <div class="card mt-4">
         <div class="card-header">
             <h4>View Material 
-                <a href="{{url('target_actor/dashboard')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+                <a href="{{url('target_actor/module-view')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
             </h4>
         </div>
         <div class="card-body">
@@ -15,6 +15,8 @@
                 <div class="alert alert-success">{{ session('message')}}</div>
             @endif
         </div>
+
+        
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -30,22 +32,13 @@
             <tbody>
                 
             @foreach ($mats as $mat)
-                  
                  <tr>
-                        <th scope="row">{{ $mat->id }}</th>
-                        <td>{{ $mat->title }}</td>
-                        <td>{{ $mat->description }}</td>
-                        <td><a href="/target_actor/managematerialfile/{{$mat->id}}"> View</a></td>
-                       
-                    </tr>
-              @endforeach
-                
-            </tbody>
-        </table>
+                    <td>{{ $mat->id }}</td>
+                    <td>{{ $mat->title }}</td>
+                    <td>{{ $mat->description }}</td>
+                    <td><a href="/target_actor/managematerialfile/{{$mat->id}}"> View</a></td> 
                 </tr>
-            </thead>
-            <tbody>
-               
+              @endforeach
                 
             </tbody>
         </table>

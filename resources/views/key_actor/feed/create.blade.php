@@ -33,7 +33,7 @@
                         <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Title') }}</label>
 
                         <div class="col-md-6">
-                            <input id="title" type="text"  name="title" value="{{ old('title') }}" class="form-control" autofocus>
+                            <input id="title" type="text"  name="title" value="{{ old('title') }}" class="form-control" required autofocus>
 
                             @error('title')
                                 <span class="invalid-feedback" role="alert">

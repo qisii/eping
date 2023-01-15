@@ -16,6 +16,9 @@
                 <div class="alert alert-success">{{ session('message')}}</div>
             @endif
         </div>
+
+        <p>Material Title: {{$file->title}}</p>
+
         <div>
             <!--  -->
             <div class="card-body">

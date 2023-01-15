@@ -11,7 +11,7 @@
         
         <div class="col-md-5 my-auto">
             <p>Search by Description</p>
-            <form action="{{ url('key_actor/report/viewreport') }}" method="GET" role="search">
+            <form action="{{ url('admin/search-report') }}" method="GET" role="search">
                 <div class="input-group">
                     <input type="search" name="search" placeholder="Search" class="form-control">
                     <button type="submit">
@@ -22,12 +22,12 @@
         </div>
 
         
-        <form action="{{ url('key_actor/filter-feeds') }}" method="GET">
+        <form action="{{ url('admin/filter-report') }}" method="GET">
             @csrf
             <div class="row">
                 <div class="col-md-3">
                     <label>Filter by Created Date</label>
-                    <input type="date" name="createdDate" class="form-control">
+                    <input type="date" name="reportDate" class="form-control">
                 </div>
                 {{-- <div class="col-md-3">
                     <label>Filter by Expiry Date</label>
@@ -38,11 +38,23 @@
             <div class="">
                 <div class="col-md-3">
                     <label>Filter by</label>
-                    <select name="type" id="" class="form-select">
-                        <option value="">Select All Type</option>
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
+                    <select name="response_status" id="" class="form-select">
+                        <option value="">Select All Response Status</option>
+                        <option value="1"{{ Request::get('response_status')== '1' ? 'selected':'' }}>Responding</option>
+                        <option value="2"{{ Request::get('response_status')== '2' ? 'selected':''}}>On the Scene</option>
+                        <option value="3"{{ Request::get('response_status')== '3' ? 'selected':''}}>Case closed</option>
+                        <option value="0" {{ Request::get('response_status') == '0' ? 'selected':''}}>Pending</option>
+                    </select>
+                    {{-- <select name="created_by" id="" class="form-select">
+                        <option value="">Select All Creator</option>
+                        <option value="1"{{ Request::get('created_by')== '1' ? 'selected':'' }}>Admin</option>
+                        <option value="0"{{ Request::get('created_by')== '0' ? 'selected':''}}>Target User</option>
+                    </select> --}}
+                    <select name="legitimacy" id="" class="form-select">
+                        <option value="">Select All Legitimacy</option>
+                        <option value="0"{{ Request::get('legitimacy')== '0'  ? 'selected':''}}>To be set</option>
+                        <option value="1"{{ Request::get('legitimacy')== '1'  ? 'selected':''}}>True</option>
+                        <option value="2"{{ Request::get('legitimacy')== '2'  ? 'selected':''}}>False</option>
                     </select>
                 </div>
                     

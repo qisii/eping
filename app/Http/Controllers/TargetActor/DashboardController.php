@@ -37,14 +37,16 @@ class DashboardController extends Controller
         $high = DB::table('feeds')->where('type',  '=', 'high')->where('exp_date',  '>=', $date)->orderBy('exp_date', 'desc')->get();
         $medium = DB::table('feeds')->where('type',  '=', 'medium')->where('exp_date',  '>=', $date)->orderBy('exp_date', 'desc')->get();
         $low = DB::table('feeds')->where('type',  '=', 'low')->where('exp_date',  '>=', $date)->orderBy('exp_date', 'desc')->get();
-        //$ekas = DB::table('users')->where('role_as',  '=', '2')->orderBy('first_name', 'desc')->get();
-        return view('target_actor.views.feed-view', compact('high', 'medium','low'));   
+        $ekas = DB::table('users')->where('role_as',  '=', '2')->orWhere('role_as',  '=', '0')->orderBy('first_name', 'desc')->get();
+        return view('target_actor.views.feed-view', compact('high', 'medium','low', 'ekas'));   
     }
 
     public function indexModule()
     {
-        $ekas = DB::table('users')->where('role_as',  '=', '2')->orderBy('first_name', 'desc')->get();
-        return view('target_actor.views.module-view', compact('ekas'));
+        $mats = Material::all();
+        $creator = DB::table('materials')->where('created_by');
+        $ekas = DB::table('users')->where('role_as',  '=', '2')->orWhere('role_as',  '=', '0')->orWhere('role_as',  '=', '1')->orderBy('first_name', 'desc')->get();
+        return view('target_actor.views.module-view', compact('ekas', 'mats', 'creator'));
     }
 
     public function viewFeed($id)
@@ -55,7 +57,7 @@ class DashboardController extends Controller
 
     public function viewMaterial($id)
     {
-        $mats = DB::table('materials')->where('created_by',  '=', $id)->orderBy('title', 'desc')->get();
+        $mats = DB::table('materials')->where('created_by', '=', $id)->orderBy('title', 'desc')->get();
         return view('target_actor.views.mat')->with('mats', $mats);
     }
     // view manage material file

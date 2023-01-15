@@ -17,6 +17,8 @@
                 <div class="alert alert-success">{{ session('message')}}</div>
             @endif
         </div>
+
+        <p>Feed Title: {{$feeds->title}}</p>
         
         <div>
             <div class="card-body">

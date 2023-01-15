@@ -57,8 +57,10 @@
                             <p>{{ $posts->incident_type}}</p>
                         </td>
                         <td>
-                            @if($posts->description != NULL)
-                                <p>{{  $posts->description  }}</p>
+                            @if( $posts->description != null)
+                                <p>{{ $posts->description }}</p>
+                            @else
+                                <strong><p>NO DESCRIPTION GIVEN BY THE USER</p></strong>
                             @endif
                             <img src="{{  url('storage/app/' . $posts->image_path)  }}" />
                         </td>

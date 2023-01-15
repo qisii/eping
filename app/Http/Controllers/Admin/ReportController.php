@@ -1,20 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\KeyActor;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Post;
-use App\Models\User;
-use Illuminate\Database\Schema\Grammars\PostgresGrammar;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Post;;
+// added
+use Illuminate\Support\Carbon;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 class ReportController extends Controller
 {
+    public function ticketreports(){
 
-    public function viewReport(Request $request) {
+        // $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('legitimacy', '=', '2')->get();
         $posts = Post::sortable();
         $posts = Post::paginate(11);
-        return view('key_actor.report.viewreport', compact('posts'));
+        return view('admin.reports.viewticket')->with('posts', $posts);
     }
 
     public function searchReport(Request $request) {
@@ -31,11 +35,11 @@ class ReportController extends Controller
                             ->sortable()
                             ->paginate(6);
                             
-            return view('key_actor.report.search-report', compact('search'));
+            return view('admin.reports.search-report', compact('search'));
         }
         else
         {
-            return view('key_actor.report.search-report');//index
+            return view('admin.reports.search-report');//index
         }
         // $posts = Post::where([
         //     ['id', '!=', Null],
@@ -104,42 +108,6 @@ class ReportController extends Controller
             $posts = Post::sortable()->paginate(5);
         }
 
-        return view('key_actor.report.filter-report', compact('posts', 'reportDate'));
+        return view('admin.reports.filter-report', compact('posts', 'reportDate'));
     }
-
-    public function updateReport(Request $request, $id)
-    {
-        $posts = Post::findOrFail($id);
-        if ($request->description or $request->response_status or $request->legitimacy != ''){
-
-            if($request->response_status !=''){
-                Post::findOrFail($id)->update([
-                    "response_status" => $request->response_status,
-                ]);
-            }
-            if($request->description !=''){
-                Post::findOrFail($id)->update([
-                    "description" => $request->description,
-                ]);
-            }
-            if($request->legitimacy !=''){
-                Post::findOrFail($id)->update([
-                    "legitimacy" => $request->legitimacy,
-                ]);
-            }
-           
-            
-            return redirect("/key_actor/report/viewreport/")->with('message', 'Report Updated Succesfully');
-        } else {
-            return redirect("/key_actor/report/edit-report/".$id);
-        }
-    }
-    public function editReport($id)
-    {
-        $posts = Post::all();
-        $posts = User::join('posts', 'posts.user_id', '=', 'users.id')->where('posts.id', '=' , $id)->first();
-        
-        return view('key_actor.report.edit')->with('posts', $posts);
-    }
-   
 }

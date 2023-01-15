@@ -1,4 +1,4 @@
-@extends('layouts.keyactor-master')
+@extends('layouts.master')
 @section('title', 'Filter Report')
 @section('content')
 
@@ -7,7 +7,7 @@
     <div class="card mt-4">
         <div class="card-header">
             <h4>Filter Results
-                <a href="{{url('key_actor/report/viewreport')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+                <a href="{{url('admin/ticketreports')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
                 {{-- <a href="{{url('key_actor/add-feed')}}" class="btn btn-primary btn-sm float-end">Add Feed</a> --}}
             </h4>
         </div>
@@ -27,7 +27,7 @@
                 </div>
             </form>
         </div> --}}
-        <form action="{{ url('key_actor/filter-report') }}" method="GET">
+        <form action="{{ url('admin/filter-report') }}" method="GET">
             @csrf
             <div class="row">
                 <div class="col-md-3">
@@ -83,8 +83,8 @@
                     <th>@sortablelink('created_at', 'Date Created')</th>
                     <th>@sortablelink('img_path', 'Image')</th>
                     <th>@sortablelink('updated_at', 'Date Updated')</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    {{-- <th>Edit</th>
+                    <th>Delete</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -128,7 +128,7 @@
                         <td>{{ $post->created_at }}</td>
                         <td><img src ={{ $post->image_path }}></td>
                         <td>{{ $post->updated_at }}</td>
-                        <td><a href="/key_actor/report/edit-report/{{ $post->id }}">Evaluate Report</a></td>
+                        {{-- <td><a href="/key_actor/report/edit-report/{{ $post->id }}">Evaluate Report</a></td> --}}
                     </tr>
                     @empty
                     <tr>

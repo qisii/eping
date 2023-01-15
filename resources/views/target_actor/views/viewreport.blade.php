@@ -48,11 +48,10 @@
         <table class="table-bordered">
             <thead>
                 <tr>
-                <th scope="col">Emergency Type</th>
-                <th scope="col">Description</th>
-                <th scope="col">Status</th>
-                <th scope="col">Date</th>
-                <th scope="col">Date</th>
+                <th scope="col">Report Emergency Type</th>
+                <th scope="col">Report Description</th>
+                <th scope="col">Report Status</th>
+                <th scope="col">Report Logs</th>
                 </tr>
             </thead>
             <form method="POST" enctype="multipart/form-data">
@@ -63,9 +62,10 @@
                         <td class="click" onclick="location.href='viewspec/{{$post->id}}'">
                                 <p>{{ $post->incident_type}}</p>
                         </td>
-                        <td>
-                            @if($post->description != NULL)
-                            <p>{{  $post->description  }}</p>
+                        <td>@if( $post->description != null)
+                                <p>{{ $post->description }}</p>
+                            @else
+                                <p class="badge bg-warning text-dark">No description</p>
                             @endif
                         </td>
                         <td>
@@ -86,12 +86,9 @@
                         @elseif($post->updated_at != $post->created_at && $post->response_status == 2)
                             <td>
                                 <p>The Response Team Arrived at {{$post->updated_at}} </p>
+                                <p>This report was created at {{$post->created_at}} </p>
                             </td>
                         @endif
-                        <td>
-                            <p>This report was created at {{$post->created_at}} </p>
-
-                        </td>
                     </tr>
                 </tbody>
             @endforeach

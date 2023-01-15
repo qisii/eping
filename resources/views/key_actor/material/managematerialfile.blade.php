@@ -24,6 +24,9 @@
                 </div>
             @endif
         </div>
+
+        <p>Material Title: {{$matfiles->title}}</p>
+
         <div>
             <!--  -->
             <div class="card-body">

@@ -18,6 +18,7 @@
     }
     .sb-sidenav {
         background: var(--white); 
+        border-right: 1px solid #343a40;
     }
     .nav-link span {
         color: var(--light-color);
@@ -38,7 +39,7 @@
     }
 </style>
 <div id="layoutSidenav_nav">
-    <nav class="sb-sidenav accordion sb-sidenav-dark border-right" id="sidenavAccordion">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading"><span>Core</span></div>
