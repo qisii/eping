@@ -2,6 +2,12 @@
 @section('title', 'Blog Dashboard')
 @section('content')
 
+<style>
+    tr td {
+        width: 20%;
+    }
+</style>
+
 <div class="container-fluid px-4">
     <div class="row">
         <!-- EKA MODULES -->
@@ -13,6 +19,7 @@
                     <th>Module Title</th>
                     <th>Module Description</th>
                     <th>Author</th>
+                    <th>View</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +39,7 @@
                                 @endif
                             @endforeach
                         </td>
-                        <td><a href="/target_actor/managematerialfile/{{ $mat->id }}">View</a></td>
+                        <td><a class="btn btn-primary" href="/target_actor/managematerialfile/{{ $mat->id }}"><i class="fa-solid fa-magnifying-glass mr-1"></i>View</a></td>
                        
                     </tr>
               @endforeach

@@ -7,7 +7,7 @@
     <div class="card mt-4">
         <div class="card-header">
             <h5>View Feed File
-                <a href="{{url('target_actor/feed-view')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+                <a href="{{url('target_actor/feed-view')}}" class="btn btn-secondary btn-sm float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
                 
             </h5>
         </div>

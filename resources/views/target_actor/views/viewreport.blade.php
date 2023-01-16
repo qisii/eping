@@ -3,7 +3,7 @@
 @section('content')
 
 <style>
-    .click {
+    tr {
         cursor: pointer;
     }
     table {
@@ -58,8 +58,8 @@
             @csrf
             @foreach ($posts as $post)
                 <tbody>
-                    <tr>
-                        <td class="click" onclick="location.href='viewspec/{{$post->id}}'">
+                    <tr onclick="location.href='viewspec/{{$post->id}}'">
+                        <td class="click">
                                 <p>{{ $post->incident_type}}</p>
                         </td>
                         <td>@if( $post->description != null)
