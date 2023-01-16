@@ -6,24 +6,24 @@
 
     <div class="card mt-4">
         <div class="card-header">
-            <h5> Material Info
-                {{-- <a href="{{url('target_actor/view-mat/'.$matfiles->created_by)}}" class="btn btn-primary btn-sm float-end">Go Back</a> --}}
-                <a href="{{url('target_actor/module-view')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+            <h5 class="fw-semibold"> {{$matfiles->title}}
+                <a href="{{url('target_actor/module-view')}}" class="btn btn-secondary btn-sm float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
             </h5>
         </div>
 
         <div>
-            <div>{{$matfiles->title}}</div>
+            <div></div>
             {{-- <div>{{$matfiles->description}}</div> --}}
 
         </div>
        
         <div class="card-body">
-            <h3>Material Files</h3>
+            <h3 class="">Module Files</h3>
+            <br>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        {{-- <th>ID</th> --}}
                         <th>Material Title</th>
                         <th>Material Description</th>
                         <th>Download</th>
@@ -33,11 +33,11 @@
                 <tbody>
                     @foreach($matfiles->materialFiles as $materialFile)
                         <tr>
-                            <td>{{ $materialFile->id }}</td>
+                            {{-- <td>{{ $materialFile->id }}</td> --}}
                             <td>{{ $materialFile->file_title}}</td>
                             <td>{{ $materialFile->file_description}}</td>
-                            <td><a href="{{url('/target_actor/downloadmaterialfile',$materialFile->file)}}">Download</a></td>
-                            <td><a href="{{url('/target_actor/editmaterialfile',$materialFile->id)}}">View</a></td>
+                            <td><a class="btn btn-success" href="{{url('/target_actor/downloadmaterialfile',$materialFile->file)}}"><i class="fa-solid fa-download"></i></a></td>
+                            <td><a class="btn btn-info" href="{{url('/target_actor/editmaterialfile',$materialFile->id)}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
                             
                         </tr>
                     @endforeach

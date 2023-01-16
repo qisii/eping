@@ -159,7 +159,12 @@
                         @endif
                         </td>
                         <td>{{ $post->created_at }}</td>
-                        <td><img src ={{ $post->image_path }}></td>
+                        <td>@if ($post->image_path != null)
+                                <img src = {{ $post->image_path }}>
+                            @else
+                                <strong><p>NO IMAGE</p></strong>
+                            @endif
+                        </td>
                         <td>{{ $post->updated_at }}</td>
                         <td><a href="/key_actor/report/edit-report/{{ $post->id }}">Evaluate Report </a></td>
                     </tr>

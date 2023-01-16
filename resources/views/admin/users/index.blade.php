@@ -105,20 +105,17 @@
                                 @elseif ($item->role_as == 1)
                                     Admin
                                 @elseif ($item->role_as == 2)
-                                    Key Actor
-                                    
+                                    Key Actor       
                                 @endif
                             </td>
                             <td>{{ $item->created_at }}</td>
                             <td>
                                 @if ($item->created_by == 0)
                                     Target User
-                                @elseif ($item->created_by == 1)
-                                    Admin
-                                @elseif ($item->created_by == 2)
-                                    Key Actor
+                        
+                                @else
+                                   
                                 @endif
-                            </td>
 
                             <td>
                                 @if ($item->status == 0)

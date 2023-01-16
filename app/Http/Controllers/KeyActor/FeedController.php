@@ -19,7 +19,7 @@ class FeedController extends Controller
     public function index()
     {   
         $feeds = DB::table('feeds')->where('created_by', Auth::user()->id)->get();
-        $feeds = Feed::sortable()->paginate(10);
+        $feeds = Feed::sortable()->paginate(5);
         return view('key_actor.feed.index', compact('feeds'));
     }
 
@@ -237,6 +237,9 @@ class FeedController extends Controller
         if(File::exists("FeedCover/".$cover)){
             File::delete("FeedCover/".$cover);
         }
+        Feed::findOrFail($id)->update([
+                    "cover" => null,
+                ]);
         return back();
     }
 

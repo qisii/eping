@@ -19,7 +19,7 @@ class MaterialController extends Controller
     public function index()
     {
         $mats = DB::table('materials')->where('created_by', Auth::user()->id)->get();
-        $mats = Material::sortable()->paginate(10);
+        $mats = Material::sortable()->paginate(5);
         return view('key_actor.material.index', compact('mats'));
     }
 
@@ -34,7 +34,7 @@ class MaterialController extends Controller
                             ->orWhere('created_at', 'LIKE', '%'.$request->search.'%')
                             ->orWhere('status', 'LIKE', '%'.$request->search.'%')
                             ->orWhere('updated_at', 'LIKE', '%'.$request->search.'%')
-                            ->paginate(11);
+                            ->paginate(5);
             return view('key_actor.material.search-module', compact('search'));//index
         }
         else

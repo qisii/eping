@@ -1,7 +1,11 @@
 @extends('layouts.keyactor-master')
 @section('title', 'View Material')
 @section('content')
-
+<style>
+    svg {
+        display: none;
+    }
+</style>
 <div class="container-fluid px-4">
 
     <div class="card mt-4">
@@ -91,10 +95,10 @@
                     <td>{{ $mat->created_at }}</td>
                     {{-- <td>{{ $mat->status }}</td> --}}
                     <td>{{ $mat->updated_at }}</td>
-                    <td><a href="/key_actor/managematerialfile/{{$mat->id}}"> Update</a></td>
+                    <td><a class="btn btn-secondary" href="/key_actor/managematerialfile/{{$mat->id}}"><i class="fa-solid fa-pen mr-1"></i>Update</a></td>
                     <td>
                         <form action="/key_actor/deletematerial/{{$mat->id}}" method="post">
-                            <button onclick="return confirm('Are you sure?');" type="submit">Delete</button>
+                            <button class="btn btn-danger" onclick="return confirm('Are you sure?');" type="submit"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
                             @csrf 
                             @method('delete')
                         </form>

@@ -6,13 +6,13 @@
     <div class="row">
         <!-- EKA MODULES -->
         <br>
-        <h4>MODULE</h4>
+        <h4 class="my-4">Eping Modules</h4>
          <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Created by</th>
+                    <th>Module Title</th>
+                    <th>Module Description</th>
+                    <th>Author</th>
                 </tr>
             </thead>
             <tbody>

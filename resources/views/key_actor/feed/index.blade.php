@@ -2,6 +2,11 @@
 @section('title', 'View Feed')
 @section('content')
 
+<style>
+    svg {
+        display: none;
+    }
+</style>
 <div class="container-fluid px-4">
 
     <div class="card mt-4">
@@ -106,13 +111,19 @@
                         @endif
                         </td>    
                         <!-- <td>{{ $feed->cover }}</td> -->
-                        <td><img src="FeedCover/{{ $feed->cover }}" alt="" style="max-height:100px; max-width:100px;"></td>
+                        <td>@if ($feed->cover != null)
+                                <img src="/FeedCover/{{ $feed->cover}}" alt="" style="max-height:100px; max-width:100px; ">
+                            @else
+                                <strong><p>NO IMAGE</p></strong>
+                            @endif
+                        </td>
+                            {{-- <img src="FeedCover/{{ $feed->cover }}" alt="" style="max-height:100px; max-width:100px;"></td> --}}
                         {{-- <td>{{ $feed->status }}</td> --}}
                         <td>{{ $feed->updated_at }}</td>
-                        <td><a href="/key_actor/edit-feed/{{ $feed->id }}">Update</a></td>
+                        <td><a class="btn btn-secondary" href="/key_actor/edit-feed/{{ $feed->id }}"><i class="fa-solid fa-pen mr-1"></i>Update</a></td>
                         <td>
                             <form action="/key_actor/deletefeed/{{$feed->id}}" method="post">
-                                <button onclick="return confirm('Are you sure?');" type="submit">Delete</button>
+                                <button class="btn btn-danger" onclick="return confirm('Are you sure?');" type="submit"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
                                 @csrf 
                                 @method('delete')
                             </form>

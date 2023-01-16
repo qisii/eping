@@ -31,13 +31,13 @@
 
     }
 </style>
+<a class="btn btn-secondary my-3 mx-2" href="{{ url('target_actor/viewreport') }}"><i class="fa-solid fa-arrow-left-long"></i> Back </a>
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Target Actor</h1>
-    <div class="card-body">
+    {{-- <div class="card-body">
         @if (session('message'))
             <div class="alert alert-success">{{  session('message')  }}</div>
         @endif
-    </div>
+    </div> --}}
     {{-- <button onclick="location.href='/target_actor/viewreport'">Back </button> --}}
     <div class="row">
             <table class="table table-bordered">
@@ -46,7 +46,7 @@
                     <th scope="col">Emergency Type</th>
                     <th scope="col">Description</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Report Log</th>
                     <th scope="col">Date created</th>
                     {{-- <th scope="col">Date</th> --}}
                     </tr>

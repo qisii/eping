@@ -1,19 +1,24 @@
 @extends('layouts.targetactor-master')
 @section('title', 'Create Material')
 @section('content')
-
-<div class="container-fluid px-4">
+<style>
+    iframe {
+        width: 100%;
+        height: 80vh;
+    }
+</style>
+<div class="container-fluid px-1">
 
     <div class="card mt-4">
         <div class="card-header">
             <h5>{{$file->file_title}}
-                <a href="{{url('/target_actor/managematerialfile/'. $file->material_id)}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+                <a href="{{url('/target_actor/managematerialfile/'. $file->material_id)}}" class="btn btn-secondary btn-sm float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
                 
             </h5>
         </div>
         <div class="card-body">
-            <div>{{$file->file_description}}</div>
-            <div><iframe src="\MaterialFiles\{{$file->file}}"></iframe></div>
+            <div class="my-2">{{$file->file_description}}</div>
+            <div class="files"><iframe src="\MaterialFiles\{{$file->file}}"></iframe></div>
         </div>
     </div>
 

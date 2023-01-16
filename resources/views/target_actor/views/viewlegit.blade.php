@@ -17,7 +17,7 @@
             <div class="container">
                 <div class="row">
                     <div class="container-fluid col-md-12">
-                        <h3>All Legit Reports</h3>
+                        <h4 class="my-4">Compiled Legitimate Eping Reports</h4>
                         <div id="map"></div>
                     </div>
                 </div>

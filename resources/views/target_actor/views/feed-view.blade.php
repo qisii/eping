@@ -32,7 +32,7 @@
                                     @if($user->role_as == 2)
                                         {{$user->first_name}}
                                     @else
-                                        sad
+                                        <strong><p>USER IS NO LONGER AN EKA</p></strong> 
                                     @endif
                                 @endif
                             @endforeach
@@ -69,7 +69,7 @@
                                     @if($user->role_as == 2)
                                         {{$user->first_name}}
                                     @else
-                                        USER IS NO LONGER AN EKA
+                                        <strong><p>USER IS NO LONGER AN EKA</p></strong>
                                     @endif
                                 @endif
                             @endforeach
@@ -105,7 +105,7 @@
                                     @if($user->role_as == 2)
                                         {{$user->first_name}}
                                     @else
-                                        USER IS NO LONGER AN EKA
+                                        <strong><p>USER IS NO LONGER AN EKA</p></strong>
                                     @endif
                                 @endif
                             @endforeach

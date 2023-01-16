@@ -120,7 +120,13 @@
                         @endif
                         </td>
                         <td>{{ $post->created_at }}</td>
-                        <td><img src ={{ $post->image_path }}></td>
+                        <td>@if ($post->image_path != null)
+                                <img src = {{ $post->image_path }}>
+                            @else
+                                <strong><p>NO IMAGE</p></strong>
+                            @endif
+                        </td>
+                        {{-- <img src = {{ $post->image_path }}> --}}
                         <td>{{ $post->updated_at }}</td>
                         <td>{{ $post->user_id }}</td>
                     </tr>
@@ -133,7 +139,9 @@
             </tbody>     
                
         </table>
-
+        <div>
+            {{ $posts->links() }}
+        </div>
     </div>
     
 </div>

@@ -17,7 +17,7 @@ class ReportController extends Controller
 
         // $posts = Post::join('users', 'posts.user_id', '=', 'users.id')->where('legitimacy', '=', '2')->get();
         $posts = Post::sortable();
-        $posts = Post::paginate(11);
+        $posts = Post::paginate(5);
         return view('admin.reports.viewticket')->with('posts', $posts);
     }
 
@@ -33,7 +33,7 @@ class ReportController extends Controller
                             // ->orWhere('img_path', 'LIKE', '%'.$request->search.'%')//
                             ->orWhere('updated_at', 'LIKE', '%'.$request->search.'%')
                             ->sortable()
-                            ->paginate(6);
+                            ->paginate(5);
                             
             return view('admin.reports.search-report', compact('search'));
         }
