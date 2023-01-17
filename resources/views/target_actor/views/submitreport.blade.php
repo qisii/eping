@@ -19,11 +19,11 @@
                 
                 
                 <tbody>
-                    <tr>
+                    <tr >
                         <label class="fw-bold ml-2" for="">Report Type : </label>
-                    @foreach ($types as $type)
-                        <td><input type="checkbox" name="incident_type[]" value="{{$type->name}}"> {{$type->name}}</td>  
-                    @endforeach
+                        <td><input class="boxes" type="checkbox" name="incident_type[]" value="Crime" onclick='deRequireCb("boxes")' required> Crime</td>
+                        <td><input class="boxes" type="checkbox" name="incident_type[]" value="Natural Disaster" onclick='deRequireCb("boxes")' required> Natural Disaster</td> 
+                        <td><input class="boxes" type="checkbox" name="incident_type[]" value="Medical Nature" onclick='deRequireCb("boxes")' required>Medical Nature</td>   
                     </tr>
                 </tbody>
                 
@@ -80,6 +80,26 @@ function showPosition(position) {
     longitude = position.coords.longitude;
     document.getElementById("latitude").value = latitude;
     document.getElementById("longitude").value = longitude;
+}
+function deRequireCb(elClass) {
+  el = document.getElementsByClassName(elClass);
+
+  var atLeastOneChecked = false; //at least one cb is checked
+  for (i = 0; i < el.length; i++) {
+    if (el[i].checked === true) {
+      atLeastOneChecked = true;
+    }
+  }
+
+  if (atLeastOneChecked === true) {
+    for (i = 0; i < el.length; i++) {
+      el[i].required = false;
+    }
+  } else {
+    for (i = 0; i < el.length; i++) {
+      el[i].required = true;
+    }
+  }
 }
 </script>
 

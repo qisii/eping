@@ -11,9 +11,9 @@
     <div class="card mt-4">
         <div class="card-header">
             <h4>View Users 
-                <a href="{{url('admin/add-user')}}" class="btn btn-primary btn-sm float-end">Add Target User</a>
-                <a href="{{url('admin/add-admin')}}" class="btn btn-primary btn-sm float-end">Add Admin</a>
-                <a href="{{url('admin/add-eka')}}" class="btn btn-primary btn-sm float-end">Add Key Actor</a>
+                <a href="{{url('admin/add-user')}}" class="btn btn-secondary float-end">Add Target User</a>
+                <a href="{{url('admin/add-admin')}}" class="btn btn-secondary float-end">Add Admin</a>
+                <a href="{{url('admin/add-eka')}}" class="btn btn-secondary float-end">Add Key Actor</a>
             </h4>
         </div>
         <div class="card-body">
@@ -25,8 +25,8 @@
         <div class="col-md-5 my-auto">
             <form action="{{ url('admin/search') }}" method="GET" role="search">
                 <div class="input-group">
-                    <input type="search" name="search" placeholder="Search" class="form-control">
-                    <button type="submit">
+                    <input required type="search" name="search" placeholder="Search" class="form-control">
+                    <button class="btn btn-secondary" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
@@ -66,7 +66,7 @@
                     
                 <div class="col-md-6">
                     <br>
-                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-filter mr-1"></i>Filter</button>
                 </div>
             </div>
 
@@ -126,8 +126,8 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ url('admin/edit/'.$item->id)}}" class="btn btn-success">Edit</a>
-                                <a href="{{ url('admin/delete/'.$item->id) }}" onclick="return confirm('Are you sure you want to delete this user?')" class="btn btn-danger">Delete</a>
+                                <a href="{{ url('admin/edit/'.$item->id)}}" class="btn btn-warning"><i class="fa-solid fa-pen mr-1"></i>Update</a>
+                                <a href="{{ url('admin/delete/'.$item->id) }}" onclick="return confirm('Are you sure you want to delete this user?')" class="btn btn-danger"><i class="fa-solid fa-trash mr-1"></i>Delete</a>
                                 <!-- <a href="{{ url('admin/delete/'.$item->id)}}" class="btn btn-danger">Delete</a> -->
                             </td>
                         </tr>

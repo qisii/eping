@@ -2,18 +2,26 @@
 @section('title', 'View Reports')
 @section('content')
 
+<style>
+    svg {
+        display: none;
+    }
+</style>
+
 <div class="container-fluid px-4">
 
 
 <div class="card mt-4">
-        
+        <div class="card-header mb-3">
+            <h4>Reports</h4>
+        </div>
         
         <div class="col-md-5 my-auto">
             <p>Search by Description</p>
             <form action="{{ url('key_actor/search-report') }}" method="GET" role="search">
                 <div class="input-group">
                     <input type="search" name="search" placeholder="Search" class="form-control">
-                    <button type="submit">
+                    <button class="btn btn-primary" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
@@ -23,7 +31,7 @@
         
         <form action="{{ url('key_actor/filter-report') }}" method="GET">
             @csrf
-            <div class="row">
+            <div class="">
                 <div class="col-md-3">
                     <label>Filter by Created Date</label>
                     <input type="date" name="reportDate" class="form-control">
@@ -37,7 +45,7 @@
             <div class="">
                 <div class="col-md-3">
                     <label>Filter by</label>
-                    <select name="response_status" id="" class="form-select">
+                    <select name="response_status" id="" class="form-select mb-3">
                         <option value="">Select All Response Status</option>
                         <option value="1"{{ Request::get('response_status')== '1' ? 'selected':'' }}>Responding</option>
                         <option value="2"{{ Request::get('response_status')== '2' ? 'selected':''}}>On the Scene</option>
@@ -133,7 +141,7 @@
                         <td>@if( $post->description != null)
                                 <p>{{ $post->description }}</p>
                             @else
-                                <strong><p>NO DESCRIPTION GIVEN BY THE USER</p></strong>
+                                <p class="badge bg-warning text-dark">No Description</p>
                             @endif
                         </td>
                         
@@ -162,11 +170,11 @@
                         <td>@if ($post->image_path != null)
                                 <img src = {{ $post->image_path }}>
                             @else
-                                <strong><p>NO IMAGE</p></strong>
+                                <p class="badge bg-warning text-dark">No image</p>
                             @endif
                         </td>
                         <td>{{ $post->updated_at }}</td>
-                        <td><a href="/key_actor/report/edit-report/{{ $post->id }}">Evaluate Report </a></td>
+                        <td><a class="btn btn-secondary" href="/key_actor/report/edit-report/{{ $post->id }}"><i class="fa-solid fa-magnifying-glass mr-1"></i>Evaluate Report </a></td>
                     </tr>
                     @empty
                     <tr>

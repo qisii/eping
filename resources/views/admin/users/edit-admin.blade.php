@@ -7,7 +7,7 @@
     <div class="card mt-4">
         <div class="card-header">
             <h5>Update Profile
-                <a href="{{url('admin/users')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+                <a href="{{url('admin/users')}}" class="btn btn-secondary float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
         
             </h5>
             

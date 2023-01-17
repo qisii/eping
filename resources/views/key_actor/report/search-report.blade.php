@@ -2,6 +2,12 @@
 @section('title', 'Search Report')
 @section('content')
 
+<style>
+    svg {
+        display: none;
+    }
+</style>
+
 <div class="container-fluid px-4">
 
     <div class="card mt-4">

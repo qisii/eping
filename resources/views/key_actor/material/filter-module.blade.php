@@ -7,7 +7,7 @@
     <div class="card mt-4">
         <div class="card-header">
             <h4>Filter Material 
-                <a href="{{url('key_actor/material')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+                <a href="{{url('key_actor/material')}}" class="btn btn-secondary float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
             </h4>
         </div>
         <div class="card-body">
@@ -59,7 +59,7 @@
                     
                 <div class="col-md-6">
                     <br>
-                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-filter mr-1"></i>Filter</button>
                 </div>
             </div>
 

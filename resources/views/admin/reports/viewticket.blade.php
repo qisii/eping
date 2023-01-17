@@ -13,8 +13,8 @@
             <p>Search by Description</p>
             <form action="{{ url('admin/search-report') }}" method="GET" role="search">
                 <div class="input-group">
-                    <input type="search" name="search" placeholder="Search" class="form-control">
-                    <button type="submit">
+                    <input required type="search" name="search" placeholder="Search" class="form-control">
+                    <button class="btn btn-secondary" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
@@ -60,7 +60,7 @@
                     
                 <div class="col-md-6">
                     <br>
-                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-filter mr-1"></i>Filter</button>
                 </div>
             </div>
 

@@ -7,7 +7,7 @@
     <div class="card mt-4">
         <div class="card-header">
             <h4>Search Results
-                <a href="{{url('admin/ticketreports')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+                <a href="{{url('admin/ticketreports')}}" class="btn btn-secondary float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
                 {{-- <a href="{{url('key_actor/add-feed')}}" class="btn btn-primary btn-sm float-end">Add Feed</a> --}}
             </h4>
         </div>

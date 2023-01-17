@@ -2,6 +2,13 @@
 @section('title', 'Filter Report')
 @section('content')
 
+
+<style>
+    svg {
+        display: none;
+    }
+</style>
+
 <div class="container-fluid px-4">
 
     <div class="card mt-4">
@@ -29,7 +36,7 @@
         </div> --}}
         <form action="{{ url('key_actor/filter-report') }}" method="GET">
             @csrf
-            <div class="row">
+            <div class="">
                 <div class="col-md-3">
                     <label>Filter by Created Date</label>
                     <input type="date" name="reportDate" value="{{ Request::get('reportDate') ?? " " }}" class="form-control">
@@ -43,7 +50,7 @@
             <div class="">
                 <div class="col-md-3">
                     <label>Filter by</label>
-                    <select name="response_status" id="" class="form-select">
+                    <select name="response_status" id="" class="form-select mb-4">
                         <option value="">Select All Response Status</option>
                         <option value="1"{{ Request::get('response_status')== '1' ? 'selected':'' }}>Responding</option>
                         <option value="2"{{ Request::get('response_status')== '2' ? 'selected':''}}>On the Scene</option>

@@ -2,12 +2,18 @@
 @section('title', 'Profile')
 @section('content')
 
+<style>
+    .btn-danger {
+        margin: 1em 0;
+    }
+</style>
+ 
 <div class="container-fluid px-4">
 
     <div class="card mt-4">
         <div class="card-header">
-            <h5>Update Feed
-                <a href="{{url('key_actor/feed')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+            <h5>Feed Title: {{$feeds->title}}
+                <a href="{{url('key_actor/feed')}}" class="btn btn-secondary float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
                 
             </h5>
         </div>
@@ -18,14 +24,14 @@
             @endif
         </div>
 
-        <p>Feed Title: {{$feeds->title}}</p>
+        {{-- <p>Feed Title: {{$feeds->title}}</p> --}}
         
         <div>
             <div class="card-body">
             <h5>Cover</h5>
            
             <form action="/key_actor/deletefeedcover/{{ $feeds->id}}" method="post">
-                <button>X</button>
+                <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
                 @csrf
                 @method('delete')
             </form>
@@ -37,7 +43,7 @@
             <h5>Feeds Files:</h5>
                 @foreach($feeds->feedFiles as $feedFile)
                 <form action = "/key_actor/deletefeedfile/{{ $feedFile->id }}" method = "post">
-                    <button>X</button>
+                    <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
                     @csrf
                     @method('delete')
                 </form>

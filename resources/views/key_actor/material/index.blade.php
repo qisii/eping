@@ -10,8 +10,8 @@
 
     <div class="card mt-4">
         <div class="card-header">
-            <h4>View Material 
-                <a href="{{url('key_actor/add-material')}}" class="btn btn-primary btn-sm float-end">Add Material</a>
+            <h4>Modules
+                <a href="{{url('key_actor/add-material')}}" class="btn btn-secondary float-end"><i class="fa-solid fa-book mr-2"></i>Add Module</a>
             </h4>
         </div>
         <div class="card-body">
@@ -23,8 +23,8 @@
         <div class="col-md-5 my-auto">
             <form action="{{ url('key_actor/search-module') }}" method="GET" role="search">
                 <div class="input-group">
-                    <input type="search" name="search" placeholder="Search" class="form-control">
-                    <button type="submit">
+                    <input required type="search" name="search" placeholder="Search" class="form-control">
+                    <button class="btn btn-secondary" type="submit">
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
@@ -33,7 +33,7 @@
 
         <form action="{{ url('key_actor/filter-module') }}" method="GET">
             @csrf
-            <div class="row">
+            <div class="mt-2">
                 <div class="col-md-3">
                     <label>Filter by Date</label>
                     <input type="date" name="createdDate" class="form-control">
@@ -63,7 +63,7 @@
                     
                 <div class="col-md-6">
                     <br>
-                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-filter mr-1"></i>Filter</button>
                 </div>
             </div>
 
@@ -95,7 +95,7 @@
                     <td>{{ $mat->created_at }}</td>
                     {{-- <td>{{ $mat->status }}</td> --}}
                     <td>{{ $mat->updated_at }}</td>
-                    <td><a class="btn btn-secondary" href="/key_actor/managematerialfile/{{$mat->id}}"><i class="fa-solid fa-pen mr-1"></i>Update</a></td>
+                    <td><a class="btn btn-warning" href="/key_actor/managematerialfile/{{$mat->id}}"><i class="fa-solid fa-pen mr-1"></i>Update</a></td>
                     <td>
                         <form action="/key_actor/deletematerial/{{$mat->id}}" method="post">
                             <button class="btn btn-danger" onclick="return confirm('Are you sure?');" type="submit"><i class="fa-solid fa-trash mr-1"></i>Delete</button>

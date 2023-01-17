@@ -6,8 +6,8 @@
 
     <div class="card mt-4">
         <div class="card-header">
-            <h5>Create Material
-                <a href="{{url('key_actor/material')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+            <h5>Module Title : {{$matfiles->title}}
+                <a href="{{url('key_actor/material')}}" class="btn btn-secondary float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
                 
             </h5>
         </div>
@@ -25,7 +25,7 @@
             @endif
         </div>
 
-        <p>Material Title: {{$matfiles->title}}</p>
+        {{-- <p>Material Title: </p> --}}
 
         <div>
             <!--  -->
@@ -49,10 +49,10 @@
                             <td>{{ $materialFile->id }}</td>
                             <td>{{ $materialFile->file_title}}</td>
                             <td>{{ $materialFile->file_description}}</td>
-                            <td><a href="{{url('/key_actor/editmaterialfile',$materialFile->id)}}">Edit</a></td>
+                            <td><a class="btn btn-warning" href="{{url('/key_actor/editmaterialfile',$materialFile->id)}}"><i class="fa-solid fa-pen mr-1"></i>Edit</a></td>
                             <td>
                                 <form action="/key_actor/deletematerialfile/{{$materialFile->id}}" method="post">
-                                    <button onclick="return confirm('Are you sure?');" type="submit">Delete</button>
+                                    <button class="btn btn-danger" onclick="return confirm('Are you sure?');" type="submit"><i class="fa-solid fa-trash mr-1"></i>Delete</button>
                                     @csrf 
                                     @method('delete')
                                 </form>

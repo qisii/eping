@@ -7,7 +7,7 @@
     <div class="card mt-4">
         <div class="card-header">
             <h5>Create Material
-                <a href="{{url('/key_actor/managematerialfile/'. $file->material_id)}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+                <a href="{{url('/key_actor/managematerialfile/'. $file->material_id)}}" class="btn btn-primary btn-sm float-end">Back</a>
                 
             </h5>
         </div>

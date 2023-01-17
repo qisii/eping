@@ -7,7 +7,7 @@
     <div class="card mt-4">
         <div class="card-header">
             <h5>Create Feed
-                <a href="{{url('key_actor/feed')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+                <a href="{{url('key_actor/feed')}}" class="btn btn-secondary float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
                 
             </h5>
         </div>
@@ -47,7 +47,7 @@
                         <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
 
                         <div class="col-md-6">
-                            <textarea  cols="10" rows="5" id="description" type="text"  name="description" value="{{ old('description') }}" class="form-control" autofocus>{{ old('description') }}</textarea>
+                            <textarea  required cols="10" rows="5" id="description" type="text"  name="description" value="{{ old('description') }}" class="form-control" autofocus>{{ old('description') }}</textarea>
 
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
@@ -61,7 +61,7 @@
                         <label for="cover" class="col-md-4 col-form-label text-md-end">{{ __('Cover') }}</label>
 
                         <div class="col-md-6">
-                            <input id="cover" type="file"  name="cover" value="{{ old('cover') }}" class="form-control" autofocus>
+                            <input required id="cover" type="file"  name="cover" value="{{ old('cover') }}" class="form-control" autofocus>
 
                             @error('cover')
                                 <span class="invalid-feedback" role="alert">
@@ -90,7 +90,7 @@
 
                         <div class="col-md-6">
                            
-                            <select id="type" type="text"  name="type"  class="form-control" autofocus>
+                            <select required id="type" type="text"  name="type"  class="form-control" autofocus>
                                 <option value="{{ old('type') }}"></option>
                                 <option value="high">High</option>
                                 <option value="medium">Medium</option>
@@ -108,7 +108,7 @@
                         <label for="exp_date" class="col-md-4 col-form-label text-md-end">{{ __('Expiry Date') }}</label>
 
                         <div class="col-md-6">
-                            <input id="exp_date" type="datetime-local"  name="exp_date" value="{{ old('exp_date') }}" class="form-control" autofocus>
+                            <input required id="exp_date" type="datetime-local"  name="exp_date" value="{{ old('exp_date') }}" class="form-control" autofocus>
 
                             @error('exp_date')
                                 <span class="invalid-feedback" role="alert">

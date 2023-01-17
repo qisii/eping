@@ -7,7 +7,7 @@
     <div class="card mt-4">
         <div class="card-header">
             <h5>Create Emergency Key Actor
-                <a href="{{url('admin/users')}}" class="btn btn-primary btn-sm float-end">Go Back</a>
+                <a href="{{url('admin/users')}}" class="btn btn-secondary float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
                 
             </h5>
         </div>
@@ -129,7 +129,7 @@
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('Register') }}
+                                {{ __('Register Key Actor') }}
                             </button>
                         </div>
                     </div>

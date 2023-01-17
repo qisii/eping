@@ -43,7 +43,7 @@
                     @if( $posts->description != null)
                         <p>{{ $posts->description }}</p>
                     @else
-                        <strong><p>NO DESCRIPTION GIVEN BY THE USER</p></strong>
+                        <p class="badge bg-warning text-dark">No Description</p>
                     @endif
                 </div>
                 @error('description')
