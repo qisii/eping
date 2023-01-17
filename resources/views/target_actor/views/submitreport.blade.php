@@ -34,7 +34,7 @@
                         <tr>
                             <td><b><label>Report Description : </label></b><br>
                                 {{-- <input type="text"  /> --}}
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3" placeholder="Emergency Report Description"></textarea>
                             </td>
                         </tr>
 

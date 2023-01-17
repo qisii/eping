@@ -2,15 +2,19 @@
 @section('title', ' Search Users')
 @section('content')
 
+<style>
+    svg {
+        display: none;
+    }
+</style>
+
+
 <div class="container-fluid px-4">
 
     <div class="card mt-4">
         <div class="card-header">
             <h4>Search Results
-                <a href="{{url('admin/users')}}" class="btn btn-secondary float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
-                {{-- <a href="{{url('admin/add-user')}}" class="btn btn-primary btn-sm float-end">Add Target User</a>
-                <a href="{{url('admin/add-admin')}}" class="btn btn-primary btn-sm float-end">Add Admin</a>
-                <a href="{{url('admin/add-eka')}}" class="btn btn-primary btn-sm float-end">Add Key Actor</a> --}}
+                <a href="{{url('admin/users')}}" class="btn btn-secondary float-end"><i class="fa-solid fa-arrow-left-long mx-1"></i>Back</a>
             </h4>
         </div>
         <div class="card-body">
@@ -90,8 +94,8 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ url('admin/edit/'.$item->id)}}" class="btn btn-warning"><i class="fa-solid fa-pen mr-1"></i>Update</a>
-                                    <a href="{{ url('admin/delete/'.$item->id) }}" onclick="return confirm('Are you sure you want to delete this user?')" class="btn btn-danger"><i class="fa-solid fa-trash mr-1"></i>Delete</a>
+                                    <a href="{{ url('admin/edit/'.$item->id)}}" class="btn btn-warning"><i class="fa-solid fa-pen mx-1"></i>Update</a>
+                                    <a href="{{ url('admin/delete/'.$item->id) }}" onclick="return confirm('Are you sure you want to delete this user?')" class="btn btn-danger"><i class="fa-solid fa-trash mx-1"></i>Delete</a>
                                     <!-- <a href="{{ url('admin/delete/'.$item->id)}}" class="btn btn-danger">Delete</a> -->
                                 </td>
                             </tr>
@@ -102,6 +106,7 @@
                         </tr>
                     @endforelse
                 </tbody>
+            </tbody>
             </table>
         {{-- @endforelse --}}
         <div>

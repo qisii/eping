@@ -2,6 +2,13 @@
 @section('title', 'Search Feed')
 @section('content')
 
+
+<style>
+    svg {
+        display: none;
+    }
+</style>
+
 <div class="container-fluid px-4">
 
     <div class="card mt-4">
@@ -65,7 +72,12 @@
                         @endif
                         </td>    
                         <!-- <td>{{ $feed->cover }}</td> -->
-                        <td><img src="FeedCover/{{ $feed->cover }}" alt="" style="max-height:100px; max-width:100px;"></td>
+                        <td>@if ($feed->cover != null)
+                                <img src="/FeedCover/{{ $feed->cover}}" alt="" style="max-height:100px; max-width:100px; ">
+                            @else
+                                <strong><p>NO IMAGE</p></strong>
+                            @endif
+                        </td>
                         <td>{{ $feed->updated_at }}</td>
                         <td><a class="btn btn-warning" href="/key_actor/edit-feed/{{ $feed->id }}"><i class="fa-solid fa-pen mr-1"></i>Update</a></td>
                         <td>

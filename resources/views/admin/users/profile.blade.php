@@ -8,7 +8,7 @@
         <div class="card-header">
             @if (Auth::user()->id == $user->id)
             <h5>Update Profile
-                <a href="{{url('admin/users')}}" class="btn btn-primary btn-sm float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
+                <a href="{{url('admin/users')}}" class="btn btn-secondary btn-sm float-end"><i class="fa-solid fa-arrow-left-long mr-1"></i>Back</a>
                 
             </h5>
             @else

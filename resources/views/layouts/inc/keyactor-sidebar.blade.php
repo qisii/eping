@@ -9,22 +9,22 @@
                 </a>
                 <div class="sb-sidenav-menu-heading">Interface</div>
                 
-                <a class="nav-link" href="  {{ url('key_actor/feed' )}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <a class="nav-link" href=" {{ url('key_actor/feed' )}}">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-comment"></i></div>
                     Feed
                 </a>
 
                 <a class="nav-link" href="{{ url('key_actor/material') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
                     Module
                 </a>
-                <div class="sb-sidenav-menu-heading">Interface</div>
+                <div class="sb-sidenav-menu-heading">Settings</div>
                 <a class="nav-link" href=" {{ url('key_actor/profile/'.Auth::user()->id )}}"">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                     Profile
                 </a>
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
                     Logout
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
+            <div class="small">Logged in as: {{ Auth::user()->first_name }}</div>
         </div>
     </nav>
 </div>

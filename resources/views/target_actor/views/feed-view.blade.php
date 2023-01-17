@@ -2,11 +2,24 @@
 @section('title', 'Blog Dashboard')
 @section('content')
 <style>
-    tr td {
-        width: 20%;
+    tr th {
+        width: 10%;
     }
     td {
-        padding: 0 1em; 
+        /* color: red; */
+    }
+
+    @media (max-width:550px) {
+        p {
+            font-size: 12px
+        }
+        h1 {
+            font-size: 1.5rem;
+        }
+        h4 {
+            font-size: 1rem;
+        }
+
     }
 </style>
 <div class="container-fluid px-4">
@@ -31,8 +44,8 @@
                     @foreach ($high as $h)
                         
                         <tr>
-                            <td>{{ $h->title }}</td>
-                            <td>{{ $h->description }}</td>
+                            <td><p>{{ $h->title }}</p></td>
+                            <td><p>{{ $h->description }}</p></td>
                             {{-- <td><img src="/FeedCover/{{ $h->cover}}" alt="" style="max-height:100px; max-width:100px; "></td> --}}
                             <td>
                             @foreach($ekas as $user)
@@ -69,8 +82,8 @@
                 <tbody>
                     @foreach ($medium as $m)
                         <tr>
-                            <td>{{ $m->title }}</td>
-                            <td>{{ $m->description }}</td>
+                            <td><p class="text-wrap">{{ $m->title }}</p></td>
+                            <td><p>{{ $m->description }}</p></td>
                             {{-- <td><img src="/FeedCover/{{ $m->cover}}" alt="" style="max-height:100px; max-width:100px; "></td> --}}
                             <td>
                             @foreach($ekas as $user)
@@ -78,7 +91,7 @@
                                     @if($user->role_as == 2)
                                         {{$user->first_name}}
                                     @else
-                                        <strong><p>USER IS NO LONGER AN EKA</p></strong>
+                                        <p class="badge bg-warning text-dark text-wrap">User is no longer an EKA</p>
                                     @endif
                                 @endif
                             @endforeach
@@ -105,8 +118,8 @@
                 <tbody>
                     @foreach ($low as $l)
                         <tr>
-                            <td>{{ $l->title }}</td>
-                            <td>{{ $l->description }}</td>
+                            <td><p>{{ $l->title }}</p></td>
+                            <td><p>{{ $l->description }}</p></td>
                             {{-- <td><img src="/FeedCover/{{ $l->cover}}" alt="" style="max-height:100px; max-width:100px; "></td> --}}
                             <td>
                             @foreach($ekas as $user)
@@ -114,7 +127,7 @@
                                     @if($user->role_as == 2)
                                         {{$user->first_name}}
                                     @else
-                                        <strong><p>USER IS NO LONGER AN EKA</p></strong>
+                                        <strong><p class="fs-1 text-wrap">USER IS NO LONGER AN EKA</p></strong>
                                     @endif
                                 @endif
                             @endforeach

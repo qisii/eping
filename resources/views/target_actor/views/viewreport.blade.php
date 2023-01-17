@@ -35,7 +35,7 @@
 </style>
 
 <div class="container-fluid">
-    <h1 class="mt-4">Emergency Report Tickets : </h1>
+    <h2 class="mt-4">Emergency Report Tickets : </h2>
     {{-- <div class="card-body">
         @if (session('message'))
             <div class="alert alert-success">{{  session('message')  }}</div>

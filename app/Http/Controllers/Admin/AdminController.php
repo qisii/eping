@@ -25,7 +25,7 @@ class AdminController extends Controller
     //search
     public function searchUsers(Request $request)
     {
-        //$search = User::sortable()->paginate(11);
+        //$search = User::sortable()->paginate(11);  
         if($request->search)
         {
             $search = User::where('id', 'LIKE', '%'.$request->search.'%')
@@ -37,13 +37,14 @@ class AdminController extends Controller
                             ->orWhere('created_by', 'LIKE', '%'.$request->search.'%')//
                             ->orWhere('status', 'LIKE', '%'.$request->search.'%')
                             ->sortable()
-                            ->paginate(6);//
-                            
+                            ->paginate(5);//            
+
             return view('admin.users.search', compact('search'));//index
         }
         else
         {
-            return view('admin.users.search');//index
+            $search = User::paginate(5);
+            return view('admin.users.search', compact('search'));//index
         }
     }
 

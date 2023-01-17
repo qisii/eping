@@ -2,7 +2,12 @@
 @section('title', 'Report Tickets')
 @section('content')
 
+<style>
+    svg {
+        display: none;
+    }
 
+</style>
 
 <div class="container-fluid px-4">
 
@@ -92,7 +97,7 @@
                         <td>@if( $post->description != null)
                                 <p>{{ $post->description }}</p>
                             @else
-                                <strong><p>NO DESCRIPTION GIVEN BY THE USER</p></strong>
+                                <p class="badge bg-warning text-dark">No Description</p>
                             @endif
                         </td>
                         
@@ -123,7 +128,7 @@
                         <td>@if ($post->image_path != null)
                                 <img src = {{ $post->image_path }}>
                             @else
-                                <strong><p>NO IMAGE</p></strong>
+                                <p class="badge bg-warning text-dark">NO IMAGE</p>
                             @endif
                         </td>
                         {{-- <img src = {{ $post->image_path }}> --}}

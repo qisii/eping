@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Eping Register</title>
     <!-- font awesome cdn link -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <!-- local css file  -->
+    
     <link rel="stylesheet" href="/css/landing/signup.css" />
   </head>
   <body>
@@ -30,7 +31,7 @@
                 <div class="row1">
                     <input id="first_name" type="text"  name="first_name" value="{{ old('first_name') }}"  autofocus required placeholder="First name">
                     <input id="last_name" type="text"  name="last_name" value="{{ old('last_name') }}"  autofocus required placeholder="Last name">
-                    <input id="phonenumber" type="text"  name="phonenumber" value="{{ old('phonenumber') }}"  autofocus required placeholder="Phone Number">
+                    <input id="phonenumber" type="text"  name="phonenumber" value="{{ old('phonenumber') }}"  autofocus required placeholder="(+63-9) Phone Number">
                 </div>
                 <div class="row2">
                     <input id="address" type="text"  name="address" value="{{ old('address') }}"  autofocus required placeholder="Address">
