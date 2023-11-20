@@ -35,6 +35,8 @@
 </style>
 
 <div class="container-fluid">
+    <a href="{{ url('target_actor/dashboard') }}" class="btn btn-secondary my-2"><i class="fa-solid fa-arrow-left-long mx-1"></i>Back</a> 
+
     <h2 class="mt-4">Emergency Report Tickets : </h2>
     {{-- <div class="card-body">
         @if (session('message'))

@@ -5,6 +5,8 @@
 <style>
 </style>
 <div class="container-fluid px-4">
+    
+    <a href="{{ url('target_actor/dashboard') }}" class="btn btn-secondary my-2"><i class="fa-solid fa-arrow-left-long mx-1"></i>Back</a> 
     <h1 class="my-4">Emergency Report</h1>
     <ol class="breadcrumb alert-info mb-4">
         <li class="">Fill Up Report Form</li>
@@ -48,7 +50,7 @@
                 <tbody>
                         <tr>
                             <td><b><label>Upload Image/s : </label></b><br>
-                                <input class="form-control" type="file" id="formFile name="image"">
+                                <input class="form-control" type="file" id="formFile" name="image">
                                 {{-- <input type="file" name="image" /> --}}
                             </td>
                         </tr>

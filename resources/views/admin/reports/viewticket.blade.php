@@ -125,11 +125,13 @@
                         @endif
                         </td>
                         <td>{{ $post->created_at }}</td>
-                        <td>@if ($post->image_path != null)
-                                <img src = {{ $post->image_path }}>
+                        <td>
+                            {{-- @if ($post->image_path != null)
+                                <img src = "{{ Storage::url($post->image_path)  }}">
                             @else
                                 <p class="badge bg-warning text-dark">NO IMAGE</p>
-                            @endif
+                            @endif --}}
+                            <img src="{{ Storage::disk('public')->url($post->image_path) }}" />
                         </td>
                         {{-- <img src = {{ $post->image_path }}> --}}
                         <td>{{ $post->updated_at }}</td>

@@ -10,7 +10,10 @@
         box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
     }
 </style>
+<a href="{{ url('target_actor/dashboard') }}" class="btn btn-secondary mx-5 my-2"><i class="fa-solid fa-arrow-left-long mx-1"></i>Back</a> 
+
 <div class="container-fluid d-flex justify-content-center align-items-center ">
+    
     {{-- <h1 class="mt-4">Target Actor</h1> --}}
     <div class="container ">
         <div class="readersack">
@@ -48,7 +51,7 @@
             bounds.extend(marker.position);
             google.maps.event.addListener(marker, 'click', (function(marker, location) {
                 return function() {
-                    infowindow.setContent("Incident Type: " + location.incident_type  + "<br>" + "Description: " + location.description);
+                    infowindow.setContent("Incident Type: " + location.incident_type);
                     infowindow.open(map, marker);
                 }
             })(marker, location));

@@ -45,7 +45,7 @@
                     <tr>
                     <th scope="col">Emergency Type</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Legitimacy</th>
                     <th scope="col">Report Log</th>
                     <th scope="col">Date created</th>
                     {{-- <th scope="col">Date</th> --}}
@@ -62,18 +62,18 @@
                             @else
                                 <strong><p>NO DESCRIPTION GIVEN BY THE USER</p></strong>
                             @endif
-                            <img src="{{  url('storage/app/' . $posts->image_path)  }}" />
+                            <img src="{{  asset('storage/app' . $posts->image_path)  }}" alt="check"/>
+
                         </td>
                         <td>
-                            @if($posts->response_status==1)
-                                <p>A response Team is on your Way.
-                                    Please wait in a safe area.
-                                </p>
-                            @elseif($posts->response_status==2)
-                                <p>The response Team is on the scene.</p>
-                            @else
-                                <p>Your report is to be seen</p>
-                            @endif
+                            @if($posts->legitimacy== 0)
+                                <p>To be set</p>
+                            @elseif($posts->legitimacy== 2)
+                                <p>False</p>
+                            @elseif($posts->legitimacy== 1)
+                                <p>True</p>
+                             @endif
+                        </td>
                         @if($posts->updated_at != $posts->created_at && $posts->response_status == 1)
                         <td>
                             
@@ -88,9 +88,23 @@
                             
 
                         </td>
+                        @elseif($posts->updated_at != $posts->created_at && $posts->response_status == 3)
+                        <td>
+                            
+                            <p>Closed</p>
+                            
+
+                        </td>
+                        @else
+                        <td>
+                            
+                            <p>None</p>
+                            
+
+                        </td>
                         @endif
                         <td>
-                            <p>{{$posts->created_at}} </p>
+                            <p>{{$posts->created_at}}</p>
 
                         </td>
                     </tr>
